@@ -7,7 +7,17 @@ import cv2
 import sys
 import time
 
-import motor_control_v2 as mc
+import motor_control_v3 as mc
+
+'''
+<Readme>
+- 가상환경에서 'pip install -r requirements.txt' 실행하여 필요 패키지 깔기. 
+  => opencv-python-headless가 아니라 opencv-python이 깔려있는지 주의. 헤드리스 써야함. 
+- 아두이노 연결하여 motor_control_vO 파일 업로드. 
+- 내장 웹캠을 사용하면 motor_control.py 파일의 cv2.VideoCapture(0) 사용. 
+- 외부 웹캠을 사용하면 cv2.VideoCapture(2) 사용. 
+- 
+'''
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -72,9 +82,9 @@ class MainWindow(QMainWindow):
     def test(self): 
         QMessageBox.information(self, "QMessageBox - information", "This is a test box.") 
     
-    ###
+    ####
     # Manual mode start 
-    ###
+    ##
     def convertToManual(self): 
         self.motor.state = 4 
     
@@ -113,15 +123,16 @@ class MainWindow(QMainWindow):
         if self.motor.state == 4: 
             print("stopClicked func called!!!") 
             self.manual_cmd = None 
-    ###
+    ##
     # Manual mode stop 
-    ###
+    ####
 
     def updateCamera(self): 
         center_x, center_y, ret, frame = self.motor.get_pred() 
         self.motor.read_ino() 
-        if (type(center_y) == int): 
-            center_y = center_y - 50 
+        # if (type(center_y) == int): 
+        #     center_y = center_y - 50 
+        
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
         
         if ret: 
