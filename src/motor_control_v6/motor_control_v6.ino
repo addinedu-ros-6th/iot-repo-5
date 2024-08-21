@@ -4,8 +4,8 @@
  * - Add general data types. 
  *   -> position_x, position_y, direction_x, direction_y, currentMillis ... etc 
  *   -> position_x, position_y : int, direction_x, direction_y : bool, currentMillis, previousMillis : long 
- *   -> send_data = { deviceStatus, position_x, position_y, direction_x, direction_y, currentMillis, motorStatus, flameStatus, waterStatus }
- *   -> size = { 1, 2, 2, 1, 1, 4, 1, 1, 1 }, total_size = 15 bytes
+ *   -> send_data = { deviceStatus, currentMillis, position_x, position_y, direction_x, direction_y, motorStatus, flameStatus, waterStatus }
+ *   -> size = { 1, 4, 1, 1, 1, 1, 1, 1, 1 }, total_size = 12 bytes
  * - 
  */
 #include <Servo.h>
@@ -25,8 +25,8 @@ bool direction_y = true;  // false: negative direction
 Servo servo_x;
 Servo servo_y;
 
-byte converted_pos_x[2];
-byte converted_pos_y[2];
+byte converted_pos_x;
+byte converted_pos_y;
 byte converted_dir_x;
 byte converted_dir_y;
 
@@ -60,6 +60,7 @@ void setup()
   pinMode(flame_pin, INPUT);
 
   memset(send_buffer, 0x00, send_buffer_size);
+  memset(converted_currMillis, 0x00, 4);
 }
 
 void loop()
@@ -99,7 +100,6 @@ void loop()
         case '0':
           noTone(buzzer_pin);
           digitalWrite(relay_pin, LOW);
-          // Serial.print("Patrol mode entered! ");
           patrol_mode(motorStatus, direction_x, direction_y, position_x, position_y);
           break;
         
@@ -107,14 +107,13 @@ void loop()
         case '1':
           noTone(buzzer_pin);
           digitalWrite(relay_pin, LOW);
-          // Serial.print("Aiming mode entered! ");
           aiming_mode(motorStatus, pairs[i].charAt(1), count, position_x, position_y);
           break;
         
         // flame detecting mode
         case '2':
+          noTone(buzzer_pin);
           digitalWrite(relay_pin, LOW);
-          Serial.print("Flame detecting mode entered!! ");
           if (digitalRead(flame_pin) < 800)  // 나중에 조정하기
           {
             // Put flame on signal here
@@ -129,8 +128,6 @@ void loop()
         
         // firing mode
         case '3':
-          noTone(buzzer_pin);
-
           // Turn on the pump
           digitalWrite(relay_pin, HIGH);
 
@@ -155,7 +152,6 @@ void loop()
         case '4':
           noTone(buzzer_pin);
           digitalWrite(relay_pin, LOW);
-          Serial.print("Manual mode entered! ");
 
           switch (pairs[i].charAt(1))
           {
@@ -176,21 +172,7 @@ void loop()
           break;
       }
     }
-
-    // Send received commands
-    // for (int i = 0; i < pair_count; i++)
-    // {
-    //   Serial.print(pairs[i]);
-    //   Serial.print(' ');
-    // }
-
-    // 여기에 두면 불 없을때 렉걸린다. 불 없을때라기보다는 받는 명령이 없을때 렉걸린다. 항상 어떤 명령을 받도록 파이썬을 짜라. 
-    Serial.print(' ');
-    Serial.println();
   }
-
-  // Serial.print(' ');
-  // Serial.println();
 
   servo_x.write(position_x);
   servo_y.write(position_y);
@@ -207,11 +189,24 @@ void loop()
   }
 
   // Send sensor data
-  // Serial.write(deviceStatus);
-  // Serial.write(motorStatus);
-  // Serial.write(flameStatus);
-  // Serial.write(waterStatus);
-  // Serial.println();  // Send data to PC via serial communication
+  converted_pos_x = intToByte(position_x);
+  converted_pos_y = intToByte(position_y);
+  converted_dir_x = boolToByte(direction_x);
+  converted_dir_y = boolToByte(direction_y);
+  longToByte(converted_currMillis, currentMillis);
+
+  memcpy(send_buffer, deviceStatus, 1);
+  memcpy(send_buffer+1, converted_currMillis, 4);
+  memcpy(send_buffer+5, converted_pos_x, 1);
+  memcpy(send_buffer+6, converted_pos_y, 1);
+  memcpy(send_buffer+7, converted_dir_x, 1);
+  memcpy(send_buffer+8, converted_dir_y, 1);
+  memcpy(send_buffer+9, motorStatus, 1);
+  memcpy(send_buffer+10, flameStatus, 1);
+  memcpy(send_buffer+11, waterStatus, 1);
+
+  Serial.write(send_buffer, 12);
+  Serial.println();
 
   count++;
 }
@@ -219,11 +214,17 @@ void loop()
 
 
 // Convert int data type to byte data type.
-void intToByte( byte* buffer, int data )
+byte intToByte( int data )
 {
-  buffer[0] = data & 0xFF;
-  buffer[1] = (data >> 8) & 0xFF;
+  byte converted = (byte)data;
+
+  return converted;
 }
+// void intToByte( byte* buffer, int data )
+// {
+//   buffer[0] = data & 0xFF;
+//   buffer[1] = (data >> 8) & 0xFF;
+// }
 
 // Convert bool data type to byte data type.
 byte boolToByte( bool data )
@@ -287,11 +288,6 @@ void patrol_mode(byte& motorStatus, bool& direction_x, bool& direction_y, int& p
   {
     position_y--;
   }
-
-  // Serial.print(position_x);
-  // Serial.print(' ');
-  // Serial.print(position_y);
-  // Serial.print(' ');
 }
 
 // Aim the nozzle at the fire 
@@ -302,33 +298,27 @@ void aiming_mode(byte& motorStatus, char cmd, int count, int& position_x, int& p
   switch (cmd)
   {
     case '0':
-      Serial.print("No fire detected ");
       break;
 
     case '1':
-      Serial.print("x-- entered ");
       position_x--;
       break;
     
     case '2':
-      Serial.print("x++ entered ");
       position_x++;
       break;
     
     case '3':
-      Serial.print("y-- entered ");
       position_y++;
       break;
 
     case '4':
-      Serial.print("y++ entered ");
       position_y--;
       break;
     
     case '5':
       if (count % 3 == 0)
       {
-        Serial.print("slow x-- entered ");
         position_x--;
       }
       break;
@@ -336,7 +326,6 @@ void aiming_mode(byte& motorStatus, char cmd, int count, int& position_x, int& p
     case '6':
       if (count % 3 == 0)
       {
-        Serial.print("slow x++ entered ");
         position_x++;
       }
       break;
@@ -344,7 +333,6 @@ void aiming_mode(byte& motorStatus, char cmd, int count, int& position_x, int& p
     case '7':
       if (count % 3 == 0)
       {
-        Serial.print("slow y-- entered ");
         position_y++;
       }
       break;
@@ -352,7 +340,6 @@ void aiming_mode(byte& motorStatus, char cmd, int count, int& position_x, int& p
     case '8':
       if (count % 3 == 0)
       {
-        Serial.print("slow y++ entered ");
         position_y--;
       }
       break;
