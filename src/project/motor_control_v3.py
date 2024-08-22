@@ -23,7 +23,7 @@ class Motor:
         self.model = YOLO("../../data/best.pt") 
 
         self.py_serial = serial.Serial(
-            port='/dev/ttyACM0', 
+            port='/dev/ttyACM1', 
             # port='/dev/cu.usbmodem22201', 
             baudrate=9600, 
             timeout=1 
