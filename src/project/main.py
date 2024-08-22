@@ -6,6 +6,7 @@ from Custom_Widgets.Widgets import *
 import cv2
 import sys
 import time
+import webbrowser
 
 import motor_control_v3 as mc
 
@@ -24,7 +25,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        loadJsonStyle(self, self.ui)
+        loadJsonStyle(self, self.ui)  # Apply JSON Style
 
         self.show()
 
@@ -49,7 +50,7 @@ class MainWindow(QMainWindow):
         self.ui.closeCenterMenuBtn.clicked.connect(lambda: self.ui.centerMenuContainer.collapseMenu())
 
         # EXPAND RIGHT MENU WIDGET SIZE
-        self.ui.profileMenuBtn.clicked.connect(lambda: self.ui.rightMenuContainer.expandMenu())
+        # self.ui.profileMenuBtn.clicked.connect(lambda: self.ui.rightMenuContainer.expandMenu())
         self.ui.moreMenuBtn.clicked.connect(lambda: self.ui.rightMenuContainer.expandMenu())
         
         # CLOSE RIGHT MENU WIDGET
@@ -57,6 +58,9 @@ class MainWindow(QMainWindow):
 
         # CLOSE NOTIFICATION MENU WIDGET
         self.ui.closeNotificationBtn.clicked.connect(lambda: self.ui.popupNotificationContainer.collapseMenu())
+
+        # OPEN URL for Web Monitoring
+        self.ui.profileMenuBtn.clicked.connect(self.open_webpage)
 
         # Manual mode buttons 
         self.ui.pushButton_8.clicked.connect(self.convertToManual)  # 메뉴얼 모드 전환 버튼 
@@ -82,6 +86,14 @@ class MainWindow(QMainWindow):
     def test(self): 
         QMessageBox.information(self, "QMessageBox - information", "This is a test box.") 
     
+    def open_webpage(self):
+        ip = "125.248.24.136"
+        port = "8000"
+        url = f"http://{ip}:{port}/login"
+        webbrowser.open(url)
+
+
+
     ####
     # Manual mode start 
     ##
