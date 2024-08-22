@@ -7,7 +7,7 @@ import cv2
 import sys
 import time
 
-import motor_control_v3 as mc
+import motor_control as mc
 
 '''
 <Readme>
@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        loadJsonStyle(self, self.ui)
+        loadJsonStyle(self, self.ui)  # Apply JSON Style
 
         self.show()
 
@@ -71,12 +71,64 @@ class MainWindow(QMainWindow):
         self.ui.pushButton.clicked.connect(self.downClicked) 
         self.ui.pushButton_12.clicked.connect(self.stopClicked) 
 
-        # self.ui.pushButton_4.released.connect(self.stopClicked) 
-        # self.ui.pushButton_3.released.connect(self.stopClicked) 
-        # self.ui.pushButton_2.released.connect(self.stopClicked) 
-        # self.ui.pushButton.released.connect(self.stopClicked) 
+        # Blink settings
+        self.blink_timer = QTimer(self)
+        self.blink_state = False
+        self.blink_timer.timeout.connect(self.blink_card_6)
+        # Set timer 11 secs
+        self.auto_recover_timer = QTimer(self)
+        self.auto_recover_timer.setSingleShot(True)
+        self.auto_recover_timer.timeout.connect(self.convertToAuto)
+        # After extinguited link to recover 0 status
+        self.ui.fireAlertBtn.clicked.connect(self.convertToAuto)
 
         self.manual_cmd = None 
+
+
+    def blink_card_6(self):
+        if self.blink_state:
+            self.ui.card_6.setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.blink_state = False
+        else:
+            self.ui.card_6.setStyleSheet("background-color: rgb(255, 0, 0);")
+            self.blink_state = True
+
+    def fire_detected(self):
+        # if self.motor.state == 3:
+        #     self.ui.popupNotificationContainer.expandMenu()
+        #     self.blink_timer.start(500)
+        #     self.ui.label_13.setText("Fire Detected")
+        # else:
+        #     pass
+        self.ui.popupNotificationContainer.expandMenu()
+        self.blink_timer.start(500)
+        self.ui.label_13.setText("Fire Detected")
+        self.test() 
+
+    def fire_extinguished(self):
+        if self.motor.state == 3:
+            self.ui.popupNotificationContainer.expandMenu()
+            self.blink_timer.stop()
+
+            self.ui.label_13.setText("Fire Extinguished, Click the fireAlertBtn to return to Auto Patrol mode.")
+            self.auto_recover_timer.start(11000)  # After 11 secs, recover to Auto
+
+            # self.waterpumpOFF()
+
+            self.blink_card_6.setStyleSheet("background-color: #343b47;")
+        else:
+            pass
+
+    def auto_recover(self):
+        # After 11 secs, if there is no confirmation, recover to Auto
+        self.ui.label_13.setText("Return to Patrol Auto Mode")
+        self.convertToAuto()
+
+    def user_initiated_recover(self):
+        # if there is confirmation with user, recover to Auto
+        if self.auto_recover_timer.isActive():
+            self.auto_recover_timer.stop()  # Stop timer
+        self.convertToAuto()
 
 
     def test(self): 
@@ -89,7 +141,14 @@ class MainWindow(QMainWindow):
         self.motor.state = 4 
     
     def convertToAuto(self): 
-        self.motor.state = 0 
+        self.motor.state = 0
+        self.ui.card_6.setStyleSheet("background-color: #343b47;")
+        
+    def check_fire_status(self, isFireCentered, isFlameSensor):
+        if isFireCentered and isFlameSensor:
+            self.fire_detected()
+        elif not isFireCentered and not isFlameSensor:
+            self.fire_extinguished()
     
     def waterpumpON(self): 
         if self.motor.state == 4: 
@@ -130,11 +189,14 @@ class MainWindow(QMainWindow):
     def updateCamera(self): 
         center_x, center_y, ret, frame = self.motor.get_pred() 
         self.motor.read_ino() 
-        # if (type(center_y) == int): 
-        #     center_y = center_y - 50 
-        
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
         
+        # 여기 테스트 필요 
+        if (self.motor.state_prev == 2) and (self.motor.state == 3): 
+            self.fire_detected() 
+        elif (self.motor.state_prev == 3) and (self.motor.state == 0): 
+            self.fire_extinguished() 
+
         if ret: 
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 
 
