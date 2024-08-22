@@ -86,8 +86,33 @@ class MainWindow(QMainWindow):
         # After extinguited link to recover 0 status
         self.ui.fireAlertBtn.clicked.connect(self.convertToAuto)
 
+        # intervaly check from Ino data
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_indicator)
+        self.timer.start(100)
+
         self.manual_cmd = None 
 
+    def update_indicator(self):
+        self.motor.read_ino()
+        if self.motor.deviceStatus == 1:
+            self.set_indicator_color("green")
+        else:
+            self.set_indicator_color("grey")
+
+    def set_indicator_color(self, color):
+        # self.ui.label_20.setStyleSheet
+        # (f"""
+        #  QLabel {{
+        #     background-color: {color};
+        #     border-radius: 10px;
+        #  }}
+        #  """
+        #  }})
+        if color == "green":
+            self.ui.indicator.setStyleSheet("background-color: rgb(0, 255, 0);")
+        elif color == "grey":
+            self.ui.indicator.setStyleSheet("background-color: rgb(128, 128, 128);")
 
     def blink_card_6(self):
         if self.blink_state:
