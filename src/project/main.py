@@ -79,17 +79,19 @@ class MainWindow(QMainWindow):
         self.blink_timer = QTimer(self)
         self.blink_state = False
         self.blink_timer.timeout.connect(self.blink_card_6)
+
         # Set timer 11 secs
         self.auto_recover_timer = QTimer(self)
         self.auto_recover_timer.setSingleShot(True)
         self.auto_recover_timer.timeout.connect(self.convertToAuto)
         # After extinguited link to recover 0 status
+        
         self.ui.fireAlertBtn.clicked.connect(self.convertToAuto)
 
-        # intervaly check from Ino data
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_indicator)
-        self.timer.start(1000)
+        # # intervaly check from Ino data
+        # self.timer = QTimer(self)
+        # self.timer.timeout.connect(self.update_indicator)
+        # self.timer.start(1000)
 
         self.manual_cmd = None 
 
@@ -98,21 +100,19 @@ class MainWindow(QMainWindow):
         if self.motor.deviceStatus == 1:
             self.set_indicator_color("green")
         else:
-            self.set_indicator_color("grey")
+            self.set_indicator_color("gray")
 
     def set_indicator_color(self, color):
-        # self.ui.label_20.setStyleSheet
-        # (f"""
-        #  QLabel {{
-        #     background-color: {color};
-        #     border-radius: 10px;
-        #  }}
-        #  """
-        #  }})
-        if color == "green":
-            self.ui.indicator.setStyleSheet("background-color: rgb(0, 255, 0);")
-        elif color == "grey":
-            self.ui.indicator.setStyleSheet("background-color: rgb(128, 128, 128);")
+        self.ui.label_20.setStyleSheet(f"""
+         QLabel {{
+            background-color: {color};
+            border-radius: 10px;
+         }}
+         """)
+        # if color == "green":
+        #     self.ui.indicator.setStyleSheet("background-color: rgb(0, 255, 0);")
+        # elif color == "grey":
+        #     self.ui.indicator.setStyleSheet("background-color: rgb(128, 128, 128);")
 
     def blink_card_6(self):
         if self.blink_state:
@@ -227,7 +227,8 @@ class MainWindow(QMainWindow):
         center_x, center_y, ret, frame = self.motor.get_pred() 
         self.motor.read_ino() 
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
-        
+        self.update_indicator() 
+
         # 여기 테스트 필요 
         if (self.motor.state_prev == 2) and (self.motor.state == 3): 
             self.fire_detected() 
