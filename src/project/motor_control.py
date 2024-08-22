@@ -4,6 +4,8 @@ import numpy as np
 import serial 
 import time 
 from collections import deque 
+from unittest.mock import MagicMock
+import serial.tools.list_ports
 
 
 # 아두이노 연결 안되있거나 웹캠 연결 안되있는 경우 버전 
@@ -18,15 +20,29 @@ TODO:
 '''
 
 class Motor: 
-    def __init__(self): 
-        self.model = YOLO("../../data/best.pt") 
-
-        self.py_serial = serial.Serial(
-            port='/dev/ttyACM0', 
-            # port='/dev/cu.usbmodem22201', 
-            baudrate=9600, 
-            timeout=1 
-        )
+    def __init__(self):
+        self.model = YOLO("../../data/best.pt")
+        # Arduino가 연결되어 있는지 확인하는 함수
+        def check_arduino_connection():
+            ports = serial.tools.list_ports.comports()
+            for port in ports:
+                if 'Arduino' in port.description:
+                    return port.device
+            return None
+        # Arduino 연결 확인
+        arduino_port = check_arduino_connection()
+        if arduino_port:
+            # Arduino가 연결되어 있는 경우 실제 시리얼 포트를 사용
+            print(f"Arduino가 {arduino_port}에서 감지되었습니다.")
+            self.py_serial = serial.Serial(
+                port=arduino_port,
+                baudrate=9600,
+                timeout=1
+            )
+        else:
+            # Arduino가 연결되지 않은 경우 MagicMock을 사용
+            print("Arduino가 감지되지 않았습니다. MagicMock을 사용합니다.")
+            self.py_serial = MagicMock()
 
         # Webcam settings 
         # self.cap = cv2.VideoCapture(2) 
