@@ -26,7 +26,7 @@ class Motor:
         )
 
         # Webcam settings 
-        self.cap = cv2.VideoCapture(2) 
+        self.cap = cv2.VideoCapture(0) 
         # self.cap = cv2.VideoCapture(0) 
         self.height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # 640 480 
         self.width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH) 
