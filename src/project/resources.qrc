@@ -299,6 +299,7 @@
     <file>icons/orangIcons/on-rounded-clicked.svg</file>
   </qresource>
   <qresource prefix="pngicons">
+    <file>icons/pngIcons/status_circle.png</file>
     <file>icons/pngIcons/fire-alarm.png</file>
     <file>icons/pngIcons/water1.png</file>
   </qresource>

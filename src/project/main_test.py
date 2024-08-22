@@ -50,7 +50,7 @@ class MainWindow(QMainWindow):
         self.ui.closeCenterMenuBtn.clicked.connect(lambda: self.ui.centerMenuContainer.collapseMenu())
 
         # EXPAND RIGHT MENU WIDGET SIZE
-        # self.ui.profileMenuBtn.clicked.connect(lambda: self.ui.rightMenuContainer.expandMenu())
+        # self.ui.profileMenuBtn.clicked.connect(   lambda: self.ui.rightMenuContainer.expandMenu())
         self.ui.moreMenuBtn.clicked.connect(lambda: self.ui.rightMenuContainer.expandMenu())
         
         # CLOSE RIGHT MENU WIDGET

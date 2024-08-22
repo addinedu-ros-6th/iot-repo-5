@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceWwBwFz.ui'
+## Form generated from reading UI file 'interfacepHPLil.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.3
 ##
@@ -87,6 +87,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.menuBtn = QPushButton(self.frame)
         self.menuBtn.setObjectName(u"menuBtn")
+        self.menuBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u":/icons/icons/whiteIcons/align-justify.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.menuBtn.setIcon(icon)
@@ -112,6 +113,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 10, 0, 10)
         self.homeBtn = QPushButton(self.frame_2)
         self.homeBtn.setObjectName(u"homeBtn")
+        self.homeBtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.homeBtn.setStyleSheet(u"background-color: #1f232a;")
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/whiteIcons/home.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -122,6 +124,7 @@ class Ui_MainWindow(object):
 
         self.dataBtn = QPushButton(self.frame_2)
         self.dataBtn.setObjectName(u"dataBtn")
+        self.dataBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon2 = QIcon()
         icon2.addFile(u":/icons/icons/whiteIcons/list.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.dataBtn.setIcon(icon2)
@@ -131,6 +134,7 @@ class Ui_MainWindow(object):
 
         self.monitorBtn = QPushButton(self.frame_2)
         self.monitorBtn.setObjectName(u"monitorBtn")
+        self.monitorBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
         icon3.addFile(u":/icons/icons/whiteIcons/monitor.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.monitorBtn.setIcon(icon3)
@@ -140,6 +144,7 @@ class Ui_MainWindow(object):
 
         self.reviewBtn = QPushButton(self.frame_2)
         self.reviewBtn.setObjectName(u"reviewBtn")
+        self.reviewBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(u":/icons/icons/whiteIcons/play.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.reviewBtn.setIcon(icon4)
@@ -164,6 +169,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 10, 0, 10)
         self.settingsBtn = QPushButton(self.frame_3)
         self.settingsBtn.setObjectName(u"settingsBtn")
+        self.settingsBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon5 = QIcon()
         icon5.addFile(u":/icons/icons/whiteIcons/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.settingsBtn.setIcon(icon5)
@@ -173,6 +179,7 @@ class Ui_MainWindow(object):
 
         self.infoBtn = QPushButton(self.frame_3)
         self.infoBtn.setObjectName(u"infoBtn")
+        self.infoBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon6 = QIcon()
         icon6.addFile(u":/icons/icons/whiteIcons/info.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.infoBtn.setIcon(icon6)
@@ -182,6 +189,7 @@ class Ui_MainWindow(object):
 
         self.helpBtn = QPushButton(self.frame_3)
         self.helpBtn.setObjectName(u"helpBtn")
+        self.helpBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon7 = QIcon()
         icon7.addFile(u":/icons/icons/whiteIcons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.helpBtn.setIcon(icon7)
@@ -240,6 +248,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.closeCenterMenuBtn.sizePolicy().hasHeightForWidth())
         self.closeCenterMenuBtn.setSizePolicy(sizePolicy2)
+        self.closeCenterMenuBtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.closeCenterMenuBtn.setLayoutDirection(Qt.LeftToRight)
         icon8 = QIcon()
         icon8.addFile(u":/icons/icons/whiteIcons/x-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -364,6 +373,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.notificationBtn = QPushButton(self.frame_6)
         self.notificationBtn.setObjectName(u"notificationBtn")
+        self.notificationBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon9 = QIcon()
         icon9.addFile(u":/icons/icons/whiteIcons/bell.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.notificationBtn.setIcon(icon9)
@@ -373,6 +383,7 @@ class Ui_MainWindow(object):
 
         self.moreMenuBtn = QPushButton(self.frame_6)
         self.moreMenuBtn.setObjectName(u"moreMenuBtn")
+        self.moreMenuBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon10 = QIcon()
         icon10.addFile(u":/icons/icons/whiteIcons/more-horizontal.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.moreMenuBtn.setIcon(icon10)
@@ -382,6 +393,7 @@ class Ui_MainWindow(object):
 
         self.profileMenuBtn = QPushButton(self.frame_6)
         self.profileMenuBtn.setObjectName(u"profileMenuBtn")
+        self.profileMenuBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon11 = QIcon()
         icon11.addFile(u":/icons/icons/whiteIcons/user.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.profileMenuBtn.setIcon(icon11)
@@ -720,6 +732,7 @@ class Ui_MainWindow(object):
 
         self.fireAlertBtn = QPushButton(self.card_5)
         self.fireAlertBtn.setObjectName(u"fireAlertBtn")
+        self.fireAlertBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon15 = QIcon()
         icon15.addFile(u":/pngicons/icons/pngIcons/fire-alarm.png", QSize(), QIcon.Normal, QIcon.Off)
         self.fireAlertBtn.setIcon(icon15)
@@ -747,6 +760,7 @@ class Ui_MainWindow(object):
 
         self.waterAlertBtn = QPushButton(self.card_6)
         self.waterAlertBtn.setObjectName(u"waterAlertBtn")
+        self.waterAlertBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon16 = QIcon()
         icon16.addFile(u":/pngicons/icons/pngIcons/water1.png", QSize(), QIcon.Normal, QIcon.Off)
         self.waterAlertBtn.setIcon(icon16)
@@ -1112,6 +1126,7 @@ class Ui_MainWindow(object):
 
         self.closeRightMenuBtn = QPushButton(self.frame_8)
         self.closeRightMenuBtn.setObjectName(u"closeRightMenuBtn")
+        self.closeRightMenuBtn.setCursor(QCursor(Qt.PointingHandCursor))
         self.closeRightMenuBtn.setIcon(icon8)
         self.closeRightMenuBtn.setIconSize(QSize(24, 24))
 
@@ -1188,6 +1203,7 @@ class Ui_MainWindow(object):
 
         self.closeNotificationBtn = QPushButton(self.frame_9)
         self.closeNotificationBtn.setObjectName(u"closeNotificationBtn")
+        self.closeNotificationBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon31 = QIcon()
         icon31.addFile(u":/icons/icons/whiteIcons/x-octagon.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.closeNotificationBtn.setIcon(icon31)
@@ -1229,6 +1245,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.frame_10)
 
+        self.frame_18 = QFrame(self.footerContainer)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_11.addWidget(self.frame_18)
+
         self.sizeGrip = QFrame(self.footerContainer)
         self.sizeGrip.setObjectName(u"sizeGrip")
         self.sizeGrip.setMinimumSize(QSize(30, 30))
@@ -1248,8 +1271,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.centerMenuPages.setCurrentIndex(1)
-        self.mainPages.setCurrentIndex(3)
+        self.centerMenuPages.setCurrentIndex(2)
+        self.mainPages.setCurrentIndex(0)
         self.pushButton_2.setDefault(True)
         self.pushButton.setDefault(True)
         self.pushButton_4.setDefault(True)
@@ -1317,8 +1340,9 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Oper Sys: JooYoen Kim</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Video Sys: S"
-                        "ehyoung Kim</p>\n"
+                        "ehyoung Lee</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">DL &amp; Data: Yonggon Yoon</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sehyoung Lee</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sensing: Kiwook Kim</p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Manager: Joo_K</p></body></html>", None))

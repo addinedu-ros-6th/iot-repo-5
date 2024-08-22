@@ -136,6 +136,9 @@
              </property>
              <item>
               <widget class="QPushButton" name="menuBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Menu</string>
                </property>
@@ -189,6 +192,9 @@
              </property>
              <item>
               <widget class="QPushButton" name="homeBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Home</string>
                </property>
@@ -212,6 +218,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="dataBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Data Storage</string>
                </property>
@@ -232,6 +241,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="monitorBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>CCTV</string>
                </property>
@@ -252,6 +264,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="reviewBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Play Recorded Files</string>
                </property>
@@ -312,6 +327,9 @@
              </property>
              <item>
               <widget class="QPushButton" name="settingsBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Go to setting</string>
                </property>
@@ -332,6 +350,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="infoBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Information about the app</string>
                </property>
@@ -352,6 +373,9 @@
              </item>
              <item>
               <widget class="QPushButton" name="helpBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Get more help</string>
                </property>
@@ -473,6 +497,9 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Close Menu</string>
                </property>
@@ -503,7 +530,7 @@
           <item>
            <widget class="QCustomStackedWidget" name="centerMenuPages">
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -583,8 +610,9 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Contact&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Oper Sys: JooYoen Kim&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Video Sys: Sehyoung Kim&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Video Sys: Sehyoung Lee&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DL &amp;amp; Data: Yonggon Yoon&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sehyoung Lee&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sensing: Kiwook Kim&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Manager: Joo_K&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -725,6 +753,9 @@ p, li { white-space: pre-wrap; }
              </property>
              <item>
               <widget class="QPushButton" name="notificationBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Notification list</string>
                </property>
@@ -745,6 +776,9 @@ p, li { white-space: pre-wrap; }
              </item>
              <item>
               <widget class="QPushButton" name="moreMenuBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>More</string>
                </property>
@@ -765,6 +799,9 @@ p, li { white-space: pre-wrap; }
              </item>
              <item>
               <widget class="QPushButton" name="profileMenuBtn">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string>Profile</string>
                </property>
@@ -882,7 +919,7 @@ p, li { white-space: pre-wrap; }
              <item>
               <widget class="QCustomStackedWidget" name="mainPages">
                <property name="currentIndex">
-                <number>3</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_6">
                 <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1495,6 +1532,9 @@ p, li { white-space: pre-wrap; }
                           </item>
                           <item alignment="Qt::AlignTop">
                            <widget class="QPushButton" name="fireAlertBtn">
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
                             <property name="text">
                              <string/>
                             </property>
@@ -1556,6 +1596,9 @@ p, li { white-space: pre-wrap; }
                           </item>
                           <item alignment="Qt::AlignTop">
                            <widget class="QPushButton" name="waterAlertBtn">
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
                             <property name="text">
                              <string/>
                             </property>
@@ -2272,6 +2315,9 @@ p, li { white-space: pre-wrap; }
                    </item>
                    <item alignment="Qt::AlignRight">
                     <widget class="QPushButton" name="closeRightMenuBtn">
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="toolTip">
                       <string>Close Menu</string>
                      </property>
@@ -2393,6 +2439,9 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item alignment="Qt::AlignRight">
                  <widget class="QPushButton" name="closeNotificationBtn">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="toolTip">
                    <string>Close Notification</string>
                   </property>
@@ -2462,6 +2511,16 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_18">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
            </widget>
           </item>
           <item alignment="Qt::AlignRight">
