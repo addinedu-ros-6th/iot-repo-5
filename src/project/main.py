@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
         # intervaly check from Ino data
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_indicator)
-        self.timer.start(100)
+        self.timer.start(1000)
 
         self.manual_cmd = None 
 
