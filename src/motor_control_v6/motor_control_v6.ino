@@ -65,6 +65,8 @@ void setup()
 
 void loop()
 {
+  currentMillis = millis();
+
   deviceStatus = 0x01;
   motorStatus = 0x00;
   waterStatus = 0x00;
@@ -114,7 +116,7 @@ void loop()
         case '2':
           noTone(buzzer_pin);
           digitalWrite(relay_pin, LOW);
-          if (digitalRead(flame_pin) < 800)  // 나중에 조정하기
+          if (digitalRead(flame_pin) < 1000)  // 나중에 조정하기
           {
             // Put flame on signal here
             flameStatus = 0x01;
@@ -195,17 +197,21 @@ void loop()
   converted_dir_y = boolToByte(direction_y);
   longToByte(converted_currMillis, currentMillis);
 
-  memcpy(send_buffer, deviceStatus, 1);
+  memcpy(send_buffer, &deviceStatus, 1);
   memcpy(send_buffer+1, converted_currMillis, 4);
-  memcpy(send_buffer+5, converted_pos_x, 1);
-  memcpy(send_buffer+6, converted_pos_y, 1);
-  memcpy(send_buffer+7, converted_dir_x, 1);
-  memcpy(send_buffer+8, converted_dir_y, 1);
-  memcpy(send_buffer+9, motorStatus, 1);
-  memcpy(send_buffer+10, flameStatus, 1);
-  memcpy(send_buffer+11, waterStatus, 1);
+  memcpy(send_buffer+5, &converted_pos_x, 1);
+  memcpy(send_buffer+6, &converted_pos_y, 1);
+  memcpy(send_buffer+7, &converted_dir_x, 1);
+  memcpy(send_buffer+8, &converted_dir_y, 1);
+  memcpy(send_buffer+9, &motorStatus, 1);
+  memcpy(send_buffer+10, &flameStatus, 1);
+  memcpy(send_buffer+11, &waterStatus, 1);
 
   Serial.write(send_buffer, 12);
+  // for (int i = 0; i < 12; i++)
+  // {
+  //   Serial.print(send_buffer[i]);
+  // }
   Serial.println();
 
   count++;
