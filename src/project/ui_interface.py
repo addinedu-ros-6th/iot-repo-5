@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacepHPLil.ui'
+## Form generated from reading UI file 'interfacemJcvxo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.3
 ##
@@ -56,6 +56,11 @@ class Ui_MainWindow(object):
 "{\n"
 "	background-color: #343b47;\n"
 "	border-radius: 20px;\n"
+"}\n"
+"#label_20\n"
+"{\n"
+"	border-radius: 10px;\n"
+"	background-color: gray;\n"
 "}\n"
 "")
         self.centralwidget = QWidget(MainWindow)
@@ -527,7 +532,7 @@ class Ui_MainWindow(object):
         self.label_29 = QLabel(self.frame_31)
         self.label_29.setObjectName(u"label_29")
         font3 = QFont()
-        font3.setPointSize(13)
+        font3.setPointSize(30)
         font3.setBold(True)
         font3.setWeight(75)
         self.label_29.setFont(font3)
@@ -725,7 +730,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_31.setContentsMargins(0, 10, 0, 10)
         self.label_28 = QLabel(self.card_5)
         self.label_28.setObjectName(u"label_28")
-        self.label_28.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(13)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.label_28.setFont(font4)
         self.label_28.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_31.addWidget(self.label_28, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -753,7 +762,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_32.setContentsMargins(0, 10, 0, 10)
         self.label_31 = QLabel(self.card_6)
         self.label_31.setObjectName(u"label_31")
-        self.label_31.setFont(font3)
+        self.label_31.setFont(font4)
         self.label_31.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_32.addWidget(self.label_31, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -941,11 +950,11 @@ class Ui_MainWindow(object):
 
         self.label_18 = QLabel(self.frame_17)
         self.label_18.setObjectName(u"label_18")
-        font4 = QFont()
-        font4.setPointSize(10)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.label_18.setFont(font4)
+        font5 = QFont()
+        font5.setPointSize(10)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.label_18.setFont(font5)
         self.label_18.setAlignment(Qt.AlignCenter)
 
         self.controlBtnLayout.addWidget(self.label_18, 1, 0, 1, 1)
@@ -1234,11 +1243,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.label_15 = QLabel(self.frame_10)
         self.label_15.setObjectName(u"label_15")
-        font5 = QFont()
-        font5.setBold(False)
-        font5.setItalic(True)
-        font5.setWeight(50)
-        self.label_15.setFont(font5)
+        font6 = QFont()
+        font6.setBold(False)
+        font6.setItalic(True)
+        font6.setWeight(50)
+        self.label_15.setFont(font6)
 
         self.horizontalLayout_12.addWidget(self.label_15)
 
@@ -1249,6 +1258,15 @@ class Ui_MainWindow(object):
         self.frame_18.setObjectName(u"frame_18")
         self.frame_18.setFrameShape(QFrame.StyledPanel)
         self.frame_18.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_18)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.label_20 = QLabel(self.frame_18)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMinimumSize(QSize(20, 20))
+        self.label_20.setMaximumSize(QSize(30, 30))
+
+        self.horizontalLayout_23.addWidget(self.label_20, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
 
         self.horizontalLayout_11.addWidget(self.frame_18)
 
@@ -1433,5 +1451,6 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeNotificationBtn.setText("")
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Copyright by SFR System", None))
+        self.label_20.setText("")
     # retranslateUi
 

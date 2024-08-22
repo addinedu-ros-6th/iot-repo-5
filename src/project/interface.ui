@@ -49,6 +49,11 @@
 	background-color: #343b47;
 	border-radius: 20px;
 }
+#label_20
+{
+	border-radius: 10px;
+	background-color: gray;
+}
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -1074,7 +1079,7 @@ p, li { white-space: pre-wrap; }
                               <widget class="QLabel" name="label_29">
                                <property name="font">
                                 <font>
-                                 <pointsize>13</pointsize>
+                                 <pointsize>30</pointsize>
                                  <weight>75</weight>
                                  <bold>true</bold>
                                 </font>
@@ -1202,7 +1207,7 @@ p, li { white-space: pre-wrap; }
                               <widget class="QLabel" name="label_33">
                                <property name="font">
                                 <font>
-                                 <pointsize>13</pointsize>
+                                 <pointsize>30</pointsize>
                                  <weight>75</weight>
                                  <bold>true</bold>
                                 </font>
@@ -1330,7 +1335,7 @@ p, li { white-space: pre-wrap; }
                               <widget class="QLabel" name="label_24">
                                <property name="font">
                                 <font>
-                                 <pointsize>13</pointsize>
+                                 <pointsize>30</pointsize>
                                  <weight>75</weight>
                                  <bold>true</bold>
                                 </font>
@@ -1458,7 +1463,7 @@ p, li { white-space: pre-wrap; }
                               <widget class="QLabel" name="label_27">
                                <property name="font">
                                 <font>
-                                 <pointsize>13</pointsize>
+                                 <pointsize>30</pointsize>
                                  <weight>75</weight>
                                  <bold>true</bold>
                                 </font>
@@ -2521,6 +2526,27 @@ p, li { white-space: pre-wrap; }
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_23">
+             <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+              <widget class="QLabel" name="label_20">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item alignment="Qt::AlignRight">
