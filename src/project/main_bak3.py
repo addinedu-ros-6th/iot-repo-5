@@ -1,5 +1,5 @@
 from PySide2.QtCore import Qt, QThread, Signal, QTimer
-from PySide2.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem
+from PySide2.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PySide2.QtGui import QImage, QPixmap
 from ui_interface import *
 from Custom_Widgets.Widgets import *
@@ -7,7 +7,6 @@ import cv2
 import sys
 import time
 import webbrowser
-import mysql.connector
 
 import motor_control as mc
 
@@ -18,7 +17,6 @@ import motor_control as mc
 - 아두이노 연결하여 motor_control_vO 파일 업로드. 
 - 내장 웹캠을 사용하면 motor_control.py 파일의 cv2.VideoCapture(0) 사용. 
 - 외부 웹캠을 사용하면 cv2.VideoCapture(2) 사용. 
-- 
 '''
 
 class MainWindow(QMainWindow):
@@ -29,9 +27,6 @@ class MainWindow(QMainWindow):
         loadJsonStyle(self, self.ui)  # Apply JSON Style
 
         self.show()
-
-        # DB connecting 
-        self.db_connection = self.connect_to_database()
 
         # Initialize camera 
         self.motor = mc.Motor() 
@@ -82,112 +77,25 @@ class MainWindow(QMainWindow):
         # Blink settings
         self.blink_timer = QTimer(self)
         self.blink_state = False
-        self.blink_timer.timeout.connect(self.blink_card_5)
+        self.blink_timer.timeout.connect(self.blink_card_6)
 
-        # Set timer 5 secs
+        # Set timer 11 secs
         self.auto_recover_timer = QTimer(self)
         self.auto_recover_timer.setSingleShot(True)
-        # self.auto_recover_timer.timeout.connect(self.convertToAuto)
-        self.auto_recover_timer.timeout.connect(self.auto_recover) 
+        self.auto_recover_timer.timeout.connect(self.convertToAuto)
         # After extinguited link to recover 0 status
         
-        # self.ui.fireAlertBtn.clicked.connect(self.convertToAuto)
-        self.ui.fireAlertBtn.clicked.connect(self.user_initiated_recover) 
+        self.ui.fireAlertBtn.clicked.connect(self.convertToAuto)
 
-        self.fire_extinguished_count = 0 
-
-        # load DB and refresh table
-        self.ui.refreshTableBtn.clicked.connect(self.loadDatabase)
-
-        # Timer setup for database insert
-        self.insert_timer = QTimer(self)
-        self.insert_timer.timeout.connect(self.insert_data_to_database)
-        self.insert_timer.start(60000)
+        # # intervaly check from Ino data
+        # self.timer = QTimer(self)
+        # self.timer.timeout.connect(self.update_indicator)
+        # self.timer.start(1000)
 
         self.manual_cmd = None 
 
-    def connect_to_database(self):
-        try:
-            conn = mysql.connector.connect(
-                host="sfrs-1.crc0su20q3tu.ap-northeast-2.rds.amazonaws.com",
-                port=3306,
-                user="root",
-                password="pymysql1234",
-                database="sfrs"
-                )
-            print("Connected to MySQL database")
-            return conn
-        except mysql.connector.Error as err:
-            QMessageBox.critical(self, "Database Connection Error", f"Error connecting to database: {err}")
-            return None
-
-    def insert_data_to_database(self):
-        if not self.db_connection:
-            print("No database connection")
-            return
-        
-        try:
-            cursor = self.db_connection.cursor(buffered=True)
-
-            query = """INSERT INTO operating_log (deviceStatus, ino_time, position_x, 
-            position_y, direction_x, direction_y, motorStatus, flameStatus, waterStatus)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
-
-            cursor.execute(query, (self.motor.deviceStatus,
-                                   self.motor.ino_time,
-                                   self.motor.position_x,
-                                   self.motor.position_y,
-                                   self.motor.direction_x,
-                                   self.motor.direction_y,
-                                   self.motor.motorStatus,
-                                   self.motor.flameStatus,
-                                   self.motor.waterStatus
-            ))
-
-            self.db_connection.commit()
-            cursor.close()
-            print("Data inserted successfully")
-
-        except mysql.connector.Error as err:
-            QMessageBox.critical(self, "Database Error", f"Error inserting data: {err}")
-
-    def loadDatabase(self):
-        if not self.db_connection:
-            print("No database connection")
-            return
-        try:
-            cursor = self.db_connection.cursor()
-            query = "SELECT * FROM operating_log"
-            cursor.execute(query)
-
-            column_names = [desc[0] for desc in cursor.description]
-
-            rows = cursor.fetchall()
-
-            # Check how many rows are in the current table
-            currentRowCount = self.ui.tableWidget.rowCount()
-
-            # Add new data to the table
-            for row_data in rows:
-                self.ui.tableWidget.insertRow(currentRowCount)
-
-                for col_index, col_name in enumerate(column_names):
-                    col_data = row_data[col_index]
-                    self.ui.tableWidget.setItem(currentRowCount, col_index, QtWidgets.QTableWidgetItem(str(col_data)))
-
-                currentRowCount += 1
-
-            cursor.close()
-
-        except mysql.connector.Error as err:
-            QMessageBox.critical(self, "Database Error", f"Error executing query: {err}")
-
-
-
-
     def update_indicator(self):
-        # self.motor.read_ino()
+        self.motor.read_ino()
         if self.motor.deviceStatus == 1:
             self.set_indicator_color("green")
         else:
@@ -200,53 +108,63 @@ class MainWindow(QMainWindow):
             border-radius: 10px;
          }}
          """)
+        # if color == "green":
+        #     self.ui.indicator.setStyleSheet("background-color: rgb(0, 255, 0);")
+        # elif color == "grey":
+        #     self.ui.indicator.setStyleSheet("background-color: rgb(128, 128, 128);")
 
-    def blink_card_5(self):
+    def blink_card_6(self):
         if self.blink_state:
-            self.ui.card_5.setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.ui.card_6.setStyleSheet("background-color: rgb(255, 255, 255);")
             self.blink_state = False
         else:
-            self.ui.card_5.setStyleSheet("background-color: rgb(255, 0, 0);")
+            self.ui.card_6.setStyleSheet("background-color: rgb(255, 0, 0);")
             self.blink_state = True
 
     def fire_detected(self):
+        # if self.motor.state == 3:
+        #     self.ui.popupNotificationContainer.expandMenu()
+        #     self.blink_timer.start(500)
+        #     self.ui.label_13.setText("Fire Detected")
+        # else:
+        #     pass
         self.ui.popupNotificationContainer.expandMenu()
         self.blink_timer.start(500)
         self.ui.label_13.setText("Fire Detected")
+        self.test() 
         self.motor.start_recording()
 
     def fire_extinguished(self):
-        self.ui.popupNotificationContainer.expandMenu()
-        self.ui.label_13.setText("Fire Extinguished, Click the fireAlertBtn to return to Auto Patrol mode.")
-        self.auto_recover_timer.start(5000)  # After 5 secs, recover to Auto
+        if self.motor.state == 3:
+            self.ui.popupNotificationContainer.expandMenu()
+            self.blink_timer.stop()
+
+            self.ui.label_13.setText("Fire Extinguished, Click the fireAlertBtn to return to Auto Patrol mode.")
+            self.auto_recover_timer.start(11000)  # After 11 secs, recover to Auto
+
+            # self.waterpumpOFF()
+            self.motor.stop_recording()
+
+            self.blink_card_6.setStyleSheet("background-color: #343b47;")
+        else:
+            pass
 
     def auto_recover(self):
         # After 11 secs, if there is no confirmation, recover to Auto
-        self.blink_timer.stop()
         self.ui.label_13.setText("Return to Patrol Auto Mode")
         self.convertToAuto()
-        self.motor.stop_recording()
-        self.ui.card_5.setStyleSheet("background-color: #343b47;")
-        self.fire_extinguished_count = 0 
 
     def user_initiated_recover(self):
         # if there is confirmation with user, recover to Auto
         if self.auto_recover_timer.isActive():
             self.auto_recover_timer.stop()  # Stop timer
-
-        self.blink_timer.stop()
-        self.ui.label_13.setText("Return to Patrol Auto Mode")
         self.convertToAuto()
-        self.motor.stop_recording() 
-        self.ui.card_5.setStyleSheet("background-color: #343b47;")
-        self.fire_extinguished_count = 0 
 
 
     def test(self): 
         QMessageBox.information(self, "QMessageBox - information", "This is a test box.") 
-    
+
     def open_webpage(self):
-        # ip = "125.248.24.136"
         ip = "localhost"
         port = "8000"
         url = f"http://{ip}:{port}/login"
@@ -264,7 +182,7 @@ class MainWindow(QMainWindow):
     
     def convertToAuto(self): 
         self.motor.state = 0
-        self.ui.card_5.setStyleSheet("background-color: #343b47;")
+        self.ui.card_6.setStyleSheet("background-color: #343b47;")
         
     def check_fire_status(self, isFireCentered, isFlameSensor):
         if isFireCentered and isFlameSensor:
@@ -314,19 +232,11 @@ class MainWindow(QMainWindow):
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
         self.update_indicator() 
 
+        # 여기 테스트 필요 
         if (self.motor.state_prev == 2) and (self.motor.state == 3): 
             self.fire_detected() 
-        elif (self.motor.state == 3) and (True not in self.motor.isFireList) and (True not in self.motor.isFlameSensor): 
-            self.fire_extinguished_count += 1
-
-        if self.fire_extinguished_count == 1: 
+        elif (self.motor.state_prev == 3) and (self.motor.state == 0): 
             self.fire_extinguished() 
-
-        
-        if self.motor.waterStatus == 0:
-            self.ui.waterAlertBtn.setStyleSheet("background-color: #343b47; width: 120px; height: 120px; border-radius: 10px")
-        else: 
-            self.ui.waterAlertBtn.setStyleSheet("background-color: red; width: 120px; height: 120px; border-radius: 10px;")
 
         if ret: 
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 
