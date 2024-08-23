@@ -10,9 +10,10 @@ from datetime import datetime
 import os
 
 # 모의 객체를 사용하여 serial.Serial 대체
-serial = MagicMock()
+# serial = MagicMock()
 
-# YOLO predict documentation: https://docs.ultralytics.com/modes/predict/#inference-arguments
+
+# 아두이노 연결 안되있거나 웹캠 연결 안되있는 경우 버전 
 '''
 TODO: 
 - Process exceptions. 
@@ -20,11 +21,13 @@ TODO:
 - #2. 불 감지 모드에서 불 안보이면 가만히 있는 예외 
 - #3. 수동모드에서 빠져나올때 펌프 켜져있거나 하는 등의 예외 처리하기 
 - 아두이노 연결 안되있어도 프로그램은 실행되게 하기 
+- 
 '''
 
 class Motor: 
     def __init__(self):
         self.model = YOLO("../../data/best.pt")
+
         # Arduino가 연결되어 있는지 확인하는 함수
         def check_arduino_connection():
             ports = serial.tools.list_ports.comports()
@@ -32,7 +35,7 @@ class Motor:
                 if 'Arduino' in port.description:
                     return port.device
             return None
-
+        
         # Arduino 연결 확인
         arduino_port = check_arduino_connection()
         if arduino_port:
@@ -48,9 +51,7 @@ class Motor:
             print("Arduino가 감지되지 않았습니다. MagicMock을 사용합니다.")
             self.py_serial = MagicMock()
 
-        # Webcam settings 
-        # self.cap = cv2.VideoCapture(2) 
-        self.cap = cv2.VideoCapture(0) 
+        self.cap = cv2.VideoCapture() 
         self.height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # 640 480 
         self.width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH) 
         self.offset_x = 120 
@@ -77,11 +78,10 @@ class Motor:
         self.flameStatus = 0 
         self.waterStatus = 0
 
-        # 녹화 관련 설정
         self.recording = False
         self.out = None
         self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        self.frame_queue = deque(maxlen=100)  # 녹화 전 프레임 저장용 큐
+        self.frame_queue = deque(maxlen=250)  # 녹화 전 프레임 저장용 큐
 
         # 녹화 파일 저장 디렉토리 확인 및 생성
         self.video_save_path = "./videos"
@@ -99,7 +99,7 @@ class Motor:
         if not ret: 
             return None, None, ret, frame
 
-        # 프레임을 큐에 저장
+        # 프레임을 큐에 저장recording
         self.frame_queue.append(frame)
 
         results = self.model.predict(source=frame, imgsz=640, conf=0.7, verbose=False) 
@@ -146,7 +146,7 @@ class Motor:
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
                 cv2.circle(frame, (center_x, center_y), 5, (0, 0, 255), -1) 
 
-            # 프레임상 불이 검출이 되었지만 2차 검증을 통과하지 못한 경우 
+            # 프레임상 불이 검출이 되었지만 2차검증을 통과하지 못하였을 경우 
             else: 
                 self.isFireList.append(False) 
                 center_x = None 
@@ -168,8 +168,9 @@ class Motor:
         return center_x, center_y, ret, frame 
     
     def read_ino(self): 
-        if self.py_serial.readable(): 
-            response = self.py_serial.read_until(b'\n') 
+        # if self.py_serial.readable(): 
+        try:
+            response = self.py_serial.read_until(b'\n')[:-2]
             print("response:", response) 
             print() 
 
@@ -182,18 +183,20 @@ class Motor:
             self.motorStatus = response[9] 
             self.flameStatus = response[10] 
             self.waterStatus = response[11] 
+        
 
         # 여기 테스트 필요 
         # else: 
-        #     self.deviceStatus = 0 
-        #     self.ino_time = 0 
-        #     self.position_x = 0 
-        #     self.position_y = 0 
-        #     self.direction_x = 0 
-        #     self.direction_y = 0 
-        #     self.motorStatus = 0 
-        #     self.flameStatus = 0 
-        #     self.waterStatus = 0 
+        except:
+            self.deviceStatus = 0 
+            self.ino_time = 0 
+            self.position_x = 0 
+            self.position_y = 0 
+            self.direction_x = 0 
+            self.direction_y = 0 
+            self.motorStatus = 0 
+            self.flameStatus = 0 
+            self.waterStatus = 0 
     
     def send_cmd(self, center_x, center_y, manual_cmd=None): 
         ## State transition part 
@@ -219,7 +222,8 @@ class Motor:
         
         # 불꽃센서가 한번이라도 반응하면 3번 상태로 전환 
         # isFlameSensor에 True가 없으면 0번 상태로 전환 
-        if (self.state == 2) and self.flameStatus: 
+        # if (self.state == 2) and self.flameStatus: 
+        if (self.state == 2) and (len(self.isFlameSensor) == self.flame_frames) and (False not in self.isFlameSensor): 
             self.state = 3 
         elif (self.state == 2) and (len(self.isFlameSensor) == self.flame_frames) and (True not in self.isFlameSensor): 
             self.isFireCentered.clear() 
@@ -227,7 +231,8 @@ class Motor:
             self.state = 0 
         
         # isFireList에 True가 없으면 0번 상태로 전환 
-        if (self.state == 3) and (True not in self.isFireList): 
+        # if (self.state == 3) and (True not in self.isFireList):
+        if (self.state == 3) and (True not in self.isFireList) and (True not in self.isFlameSensor): 
             self.isFireCentered.clear() 
             self.isFlameSensor.clear() 
             self.state = 0 
@@ -238,7 +243,7 @@ class Motor:
 
 
         ## Command part 
-        self.cmd_list = [] 
+        self.cmd_list = ["99"] 
         
         # patrol mode 
         if self.state == 0: 
@@ -275,7 +280,7 @@ class Motor:
             else: 
                 self.isFireCentered.append(False) 
             
-        elif (self.state == 1) and (center_x is None) and (center_y is None): 
+        elif (self.state == 1) and (center_x == None) and (center_y == None): 
             self.cmd_list.append("10") 
         
         # flame detecting mode 
@@ -297,8 +302,8 @@ class Motor:
             else: 
                 self.cmd_list.append("40") 
             
-
-
+        
+        
         # Send commands to arduino 
         cmd = ''.join(self.cmd_list) + '\n' 
         self.py_serial.write(cmd.encode()) 
@@ -327,6 +332,8 @@ class Motor:
             self.recording = False
             self.out.release()
             print(f"녹화가 종료되었습니다. 저장된 파일: {self.video_filename}")
+
+
 
 if __name__ == "__main__": 
     motor = Motor() 
