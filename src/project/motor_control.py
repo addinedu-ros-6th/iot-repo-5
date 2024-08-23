@@ -232,12 +232,14 @@ class Motor:
             self.isFlameSensor.clear() 
             self.state = 0 
         
+        # 3 -> 0 전환도 여기서 처리 안한다 
         # isFireList에 True가 없으면 0번 상태로 전환 
         # if (self.state == 3) and (True not in self.isFireList):
         if (self.state == 3) and (True not in self.isFireList) and (True not in self.isFlameSensor): 
-            self.isFireCentered.clear() 
-            self.isFlameSensor.clear() 
-            self.state = 0 
+            pass 
+            # self.isFireCentered.clear() 
+            # self.isFlameSensor.clear() 
+            # self.state = 0 
         
         # 4번 상태로 가는 전환이나 빠져나가는 전환은 여기서 처리 안하므로 작성 내용이 없다 
         if (self.state == 4): 
@@ -296,6 +298,10 @@ class Motor:
         # firing mode 
         if self.state == 3: 
             self.cmd_list.append("30") 
+            if self.flameStatus: 
+                self.isFlameSensor.append(True) 
+            else: 
+                self.isFlameSensor.append(False) 
 
         # manual mode 
         if self.state == 4: 
@@ -327,33 +333,6 @@ class Motor:
             while self.frame_queue:
                 self.out.write(self.frame_queue.popleft())
             self.recording = True
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
-            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
 
     def stop_recording(self):
         if self.recording:
