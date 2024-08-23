@@ -51,7 +51,7 @@ class Motor:
             print("Arduino가 감지되지 않았습니다. MagicMock을 사용합니다.")
             self.py_serial = MagicMock()
 
-        self.cap = cv2.VideoCapture(2) 
+        self.cap = cv2.VideoCapture() 
         self.height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # 640 480 
         self.width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH) 
         self.offset_x = 120 
