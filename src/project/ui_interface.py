@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacemJcvxo.ui'
+## Form generated from reading UI file 'interfaceMowcFC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.3
 ##
@@ -15,6 +15,7 @@ from PySide2.QtWidgets import *
 from Custom_Widgets.Widgets import QCustomSlideMenu
 from Custom_Widgets.Widgets import QCustomStackedWidget
 
+import resources_rc
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -268,15 +269,19 @@ class Ui_MainWindow(object):
 
         self.centerMenuPages = QCustomStackedWidget(self.centerMenuSubContainer)
         self.centerMenuPages.setObjectName(u"centerMenuPages")
+        font = QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.centerMenuPages.setFont(font)
         self.page = QWidget()
         self.page.setObjectName(u"page")
         self.verticalLayout_7 = QVBoxLayout(self.page)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_3 = QLabel(self.page)
         self.label_3.setObjectName(u"label_3")
-        font = QFont()
-        font.setPointSize(13)
-        self.label_3.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(13)
+        self.label_3.setFont(font1)
         self.label_3.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_7.addWidget(self.label_3)
@@ -288,7 +293,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_4 = QLabel(self.page_2)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(13)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.label_4.setFont(font2)
         self.label_4.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_8.addWidget(self.label_4)
@@ -305,7 +314,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.label_5 = QLabel(self.page_3)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font)
+        self.label_5.setFont(font2)
         self.label_5.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_9.addWidget(self.label_5)
@@ -357,10 +366,7 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.frame_5)
         self.label_7.setObjectName(u"label_7")
-        font1 = QFont()
-        font1.setBold(True)
-        font1.setWeight(75)
-        self.label_7.setFont(font1)
+        self.label_7.setFont(font)
         self.label_7.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_8.addWidget(self.label_7)
@@ -499,11 +505,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
         self.label_30 = QLabel(self.frame_32)
         self.label_30.setObjectName(u"label_30")
-        font2 = QFont()
-        font2.setPointSize(12)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.label_30.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(12)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.label_30.setFont(font3)
         self.label_30.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_21.addWidget(self.label_30)
@@ -531,11 +537,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_34.setContentsMargins(0, 0, 0, 10)
         self.label_29 = QLabel(self.frame_31)
         self.label_29.setObjectName(u"label_29")
-        font3 = QFont()
-        font3.setPointSize(30)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.label_29.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(30)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.label_29.setFont(font4)
         self.label_29.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_34.addWidget(self.label_29)
@@ -562,7 +568,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.label_34 = QLabel(self.frame_34)
         self.label_34.setObjectName(u"label_34")
-        self.label_34.setFont(font2)
+        self.label_34.setFont(font3)
         self.label_34.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_22.addWidget(self.label_34)
@@ -590,7 +596,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_35.setContentsMargins(0, 0, 0, 10)
         self.label_33 = QLabel(self.frame_33)
         self.label_33.setObjectName(u"label_33")
-        self.label_33.setFont(font3)
+        self.label_33.setFont(font4)
         self.label_33.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_35.addWidget(self.label_33, 0, Qt.AlignTop)
@@ -617,7 +623,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.label_22 = QLabel(self.frame_27)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setFont(font2)
+        self.label_22.setFont(font3)
         self.label_22.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_19.addWidget(self.label_22)
@@ -645,7 +651,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.setContentsMargins(0, 0, 0, 10)
         self.label_24 = QLabel(self.frame_28)
         self.label_24.setObjectName(u"label_24")
-        self.label_24.setFont(font3)
+        self.label_24.setFont(font4)
         self.label_24.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_27.addWidget(self.label_24, 0, Qt.AlignTop)
@@ -672,7 +678,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.label_25 = QLabel(self.frame_29)
         self.label_25.setObjectName(u"label_25")
-        self.label_25.setFont(font2)
+        self.label_25.setFont(font3)
         self.label_25.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_20.addWidget(self.label_25)
@@ -700,7 +706,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_29.setContentsMargins(0, 0, 0, 10)
         self.label_27 = QLabel(self.frame_30)
         self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font3)
+        self.label_27.setFont(font4)
         self.label_27.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_29.addWidget(self.label_27, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -730,11 +736,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_31.setContentsMargins(0, 10, 0, 10)
         self.label_28 = QLabel(self.card_5)
         self.label_28.setObjectName(u"label_28")
-        font4 = QFont()
-        font4.setPointSize(13)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.label_28.setFont(font4)
+        self.label_28.setFont(font2)
         self.label_28.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_31.addWidget(self.label_28, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -762,7 +764,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_32.setContentsMargins(0, 10, 0, 10)
         self.label_31 = QLabel(self.card_6)
         self.label_31.setObjectName(u"label_31")
-        self.label_31.setFont(font4)
+        self.label_31.setFont(font2)
         self.label_31.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_32.addWidget(self.label_31, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -806,12 +808,72 @@ class Ui_MainWindow(object):
         self.page_7.setObjectName(u"page_7")
         self.verticalLayout_17 = QVBoxLayout(self.page_7)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.label_11 = QLabel(self.page_7)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setFont(font)
-        self.label_11.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.frame_20 = QFrame(self.page_7)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_26 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.tableWidget = QTableWidget(self.frame_20)
+        if (self.tableWidget.columnCount() < 10):
+            self.tableWidget.setColumnCount(10)
+        __qtablewidgetitem = QTableWidgetItem()
+        __qtablewidgetitem.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        __qtablewidgetitem1.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem1.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        __qtablewidgetitem2.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem2.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem3.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        __qtablewidgetitem4.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem4.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        __qtablewidgetitem5.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem5.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        __qtablewidgetitem6.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem6.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        __qtablewidgetitem7.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem7.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        __qtablewidgetitem8.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem8.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(8, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        __qtablewidgetitem9.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem9.setFont(font3);
+        self.tableWidget.setHorizontalHeaderItem(9, __qtablewidgetitem9)
+        self.tableWidget.setObjectName(u"tableWidget")
 
-        self.verticalLayout_17.addWidget(self.label_11)
+        self.verticalLayout_26.addWidget(self.tableWidget)
+
+        self.refreshTableBtn = QPushButton(self.frame_20)
+        self.refreshTableBtn.setObjectName(u"refreshTableBtn")
+        self.refreshTableBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        icon17 = QIcon()
+        icon17.addFile(u":/icons/icons/whiteIcons/refresh-cw.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.refreshTableBtn.setIcon(icon17)
+        self.refreshTableBtn.setIconSize(QSize(20, 20))
+
+        self.verticalLayout_26.addWidget(self.refreshTableBtn, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_17.addWidget(self.frame_20)
 
         self.mainPages.addWidget(self.page_7)
         self.page_8 = QWidget()
@@ -822,7 +884,7 @@ class Ui_MainWindow(object):
         self.label_12.setObjectName(u"label_12")
         sizePolicy3.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
         self.label_12.setSizePolicy(sizePolicy3)
-        self.label_12.setFont(font)
+        self.label_12.setFont(font1)
         self.label_12.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_18.addWidget(self.label_12)
@@ -855,15 +917,15 @@ class Ui_MainWindow(object):
         self.controlBtnLayout.setObjectName(u"controlBtnLayout")
         self.label_10 = QLabel(self.frame_17)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setFont(font1)
+        self.label_10.setFont(font)
 
         self.controlBtnLayout.addWidget(self.label_10, 0, 1, 1, 1)
 
         self.pushButton_2 = QPushButton(self.frame_17)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        icon17 = QIcon()
-        icon17.addFile(u":/icons/icons/whiteIcons/arrow-up-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon17)
+        icon18 = QIcon()
+        icon18.addFile(u":/icons/icons/whiteIcons/arrow-up-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_2.setIcon(icon18)
         self.pushButton_2.setIconSize(QSize(30, 30))
         self.pushButton_2.setAutoRepeat(True)
 
@@ -871,9 +933,9 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.frame_17)
         self.pushButton.setObjectName(u"pushButton")
-        icon18 = QIcon()
-        icon18.addFile(u":/icons/icons/whiteIcons/arrow-down-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon18)
+        icon19 = QIcon()
+        icon19.addFile(u":/icons/icons/whiteIcons/arrow-down-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon19)
         self.pushButton.setIconSize(QSize(30, 30))
         self.pushButton.setAutoRepeat(True)
 
@@ -881,9 +943,9 @@ class Ui_MainWindow(object):
 
         self.pushButton_5 = QPushButton(self.frame_17)
         self.pushButton_5.setObjectName(u"pushButton_5")
-        icon19 = QIcon()
-        icon19.addFile(u":/icons/icons/whiteIcons/plus-square.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_5.setIcon(icon19)
+        icon20 = QIcon()
+        icon20.addFile(u":/icons/icons/whiteIcons/plus-square.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_5.setIcon(icon20)
         self.pushButton_5.setIconSize(QSize(30, 30))
         self.pushButton_5.setAutoRepeat(True)
 
@@ -891,9 +953,9 @@ class Ui_MainWindow(object):
 
         self.pushButton_4 = QPushButton(self.frame_17)
         self.pushButton_4.setObjectName(u"pushButton_4")
-        icon20 = QIcon()
-        icon20.addFile(u":/icons/icons/whiteIcons/arrow-left-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_4.setIcon(icon20)
+        icon21 = QIcon()
+        icon21.addFile(u":/icons/icons/whiteIcons/arrow-left-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_4.setIcon(icon21)
         self.pushButton_4.setIconSize(QSize(30, 30))
         self.pushButton_4.setAutoRepeat(True)
 
@@ -901,9 +963,9 @@ class Ui_MainWindow(object):
 
         self.pushButton_3 = QPushButton(self.frame_17)
         self.pushButton_3.setObjectName(u"pushButton_3")
-        icon21 = QIcon()
-        icon21.addFile(u":/icons/icons/whiteIcons/arrow-right-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_3.setIcon(icon21)
+        icon22 = QIcon()
+        icon22.addFile(u":/icons/icons/whiteIcons/arrow-right-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_3.setIcon(icon22)
         self.pushButton_3.setIconSize(QSize(30, 30))
         self.pushButton_3.setAutoRepeat(True)
 
@@ -911,29 +973,29 @@ class Ui_MainWindow(object):
 
         self.pushButton_8 = QPushButton(self.frame_17)
         self.pushButton_8.setObjectName(u"pushButton_8")
-        icon22 = QIcon()
-        icon22.addFile(u":/icons/icons/whiteIcons/on-rounded.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon22.addFile(u":/icons_orange/icons/orangIcons/on-rounded-clicked.svg", QSize(), QIcon.Normal, QIcon.On)
-        self.pushButton_8.setIcon(icon22)
+        icon23 = QIcon()
+        icon23.addFile(u":/icons/icons/whiteIcons/on-rounded.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon23.addFile(u":/icons_orange/icons/orangIcons/on-rounded-clicked.svg", QSize(), QIcon.Normal, QIcon.On)
+        self.pushButton_8.setIcon(icon23)
         self.pushButton_8.setIconSize(QSize(35, 35))
 
         self.controlBtnLayout.addWidget(self.pushButton_8, 1, 1, 1, 1)
 
         self.pushButton_7 = QPushButton(self.frame_17)
         self.pushButton_7.setObjectName(u"pushButton_7")
-        icon23 = QIcon()
-        icon23.addFile(u":/icons/icons/whiteIcons/off-rounded.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon23.addFile(u":/icons_orange/icons/orangIcons/off-rounded-clicked.svg", QSize(), QIcon.Normal, QIcon.On)
-        self.pushButton_7.setIcon(icon23)
+        icon24 = QIcon()
+        icon24.addFile(u":/icons/icons/whiteIcons/off-rounded.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon24.addFile(u":/icons_orange/icons/orangIcons/off-rounded-clicked.svg", QSize(), QIcon.Normal, QIcon.On)
+        self.pushButton_7.setIcon(icon24)
         self.pushButton_7.setIconSize(QSize(35, 35))
 
         self.controlBtnLayout.addWidget(self.pushButton_7, 2, 1, 1, 1)
 
         self.pushButton_6 = QPushButton(self.frame_17)
         self.pushButton_6.setObjectName(u"pushButton_6")
-        icon24 = QIcon()
-        icon24.addFile(u":/icons/icons/whiteIcons/minus-square.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_6.setIcon(icon24)
+        icon25 = QIcon()
+        icon25.addFile(u":/icons/icons/whiteIcons/minus-square.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_6.setIcon(icon25)
         self.pushButton_6.setIconSize(QSize(30, 30))
         self.pushButton_6.setAutoRepeat(True)
 
@@ -941,9 +1003,9 @@ class Ui_MainWindow(object):
 
         self.pushButton_12 = QPushButton(self.frame_17)
         self.pushButton_12.setObjectName(u"pushButton_12")
-        icon25 = QIcon()
-        icon25.addFile(u":/icons/icons/whiteIcons/stop-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_12.setIcon(icon25)
+        icon26 = QIcon()
+        icon26.addFile(u":/icons/icons/whiteIcons/stop-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_12.setIcon(icon26)
         self.pushButton_12.setIconSize(QSize(35, 35))
 
         self.controlBtnLayout.addWidget(self.pushButton_12, 2, 0, 1, 1)
@@ -961,7 +1023,7 @@ class Ui_MainWindow(object):
 
         self.label_19 = QLabel(self.frame_17)
         self.label_19.setObjectName(u"label_19")
-        self.label_19.setFont(font1)
+        self.label_19.setFont(font)
         self.label_19.setAlignment(Qt.AlignCenter)
 
         self.controlBtnLayout.addWidget(self.label_19, 0, 0, 1, 1)
@@ -982,21 +1044,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_25.setContentsMargins(0, 0, 0, 0)
         self.label_17 = QLabel(self.frame_19)
         self.label_17.setObjectName(u"label_17")
-        self.label_17.setFont(font1)
+        self.label_17.setFont(font)
         self.label_17.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_25.addWidget(self.label_17, 0, Qt.AlignTop)
 
         self.pushButton_9 = QPushButton(self.frame_19)
         self.pushButton_9.setObjectName(u"pushButton_9")
-        self.pushButton_9.setIcon(icon22)
+        self.pushButton_9.setIcon(icon23)
         self.pushButton_9.setIconSize(QSize(35, 35))
 
         self.verticalLayout_25.addWidget(self.pushButton_9)
 
         self.pushButton_10 = QPushButton(self.frame_19)
         self.pushButton_10.setObjectName(u"pushButton_10")
-        self.pushButton_10.setIcon(icon23)
+        self.pushButton_10.setIcon(icon24)
         self.pushButton_10.setIconSize(QSize(35, 35))
 
         self.verticalLayout_25.addWidget(self.pushButton_10)
@@ -1047,52 +1109,52 @@ class Ui_MainWindow(object):
         self.horizontalLayout_14.setContentsMargins(100, 0, 100, 0)
         self.playBtn = QPushButton(self.frame_12)
         self.playBtn.setObjectName(u"playBtn")
-        icon26 = QIcon()
-        icon26.addFile(u":/icons/icons/whiteIcons/play-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.playBtn.setIcon(icon26)
+        icon27 = QIcon()
+        icon27.addFile(u":/icons/icons/whiteIcons/play-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.playBtn.setIcon(icon27)
         self.playBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.playBtn)
 
         self.pauseBtn = QPushButton(self.frame_12)
         self.pauseBtn.setObjectName(u"pauseBtn")
-        icon27 = QIcon()
-        icon27.addFile(u":/icons/icons/whiteIcons/pause-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pauseBtn.setIcon(icon27)
+        icon28 = QIcon()
+        icon28.addFile(u":/icons/icons/whiteIcons/pause-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pauseBtn.setIcon(icon28)
         self.pauseBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.pauseBtn)
 
         self.stopBtn = QPushButton(self.frame_12)
         self.stopBtn.setObjectName(u"stopBtn")
-        self.stopBtn.setIcon(icon25)
+        self.stopBtn.setIcon(icon26)
         self.stopBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.stopBtn)
 
         self.zoomInBtn = QPushButton(self.frame_12)
         self.zoomInBtn.setObjectName(u"zoomInBtn")
-        icon28 = QIcon()
-        icon28.addFile(u":/icons/icons/whiteIcons/zoom-in.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.zoomInBtn.setIcon(icon28)
+        icon29 = QIcon()
+        icon29.addFile(u":/icons/icons/whiteIcons/zoom-in.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.zoomInBtn.setIcon(icon29)
         self.zoomInBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.zoomInBtn)
 
         self.zoomOutBtn = QPushButton(self.frame_12)
         self.zoomOutBtn.setObjectName(u"zoomOutBtn")
-        icon29 = QIcon()
-        icon29.addFile(u":/icons/icons/whiteIcons/zoom-out.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.zoomOutBtn.setIcon(icon29)
+        icon30 = QIcon()
+        icon30.addFile(u":/icons/icons/whiteIcons/zoom-out.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.zoomOutBtn.setIcon(icon30)
         self.zoomOutBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.zoomOutBtn)
 
         self.pushButton_11 = QPushButton(self.frame_12)
         self.pushButton_11.setObjectName(u"pushButton_11")
-        icon30 = QIcon()
-        icon30.addFile(u":/icons/icons/whiteIcons/file-plus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_11.setIcon(icon30)
+        icon31 = QIcon()
+        icon31.addFile(u":/icons/icons/whiteIcons/file-plus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_11.setIcon(icon31)
         self.pushButton_11.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.pushButton_11)
@@ -1152,7 +1214,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_8 = QLabel(self.page_4)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setFont(font)
+        self.label_8.setFont(font1)
         self.label_8.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_13.addWidget(self.label_8)
@@ -1164,7 +1226,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_9 = QLabel(self.page_5)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font)
+        self.label_9.setFont(font1)
         self.label_9.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_14.addWidget(self.label_9)
@@ -1192,7 +1254,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.label_14 = QLabel(self.popupNotificationSubContainer)
         self.label_14.setObjectName(u"label_14")
-        self.label_14.setFont(font1)
+        self.label_14.setFont(font)
 
         self.verticalLayout_20.addWidget(self.label_14)
 
@@ -1213,9 +1275,9 @@ class Ui_MainWindow(object):
         self.closeNotificationBtn = QPushButton(self.frame_9)
         self.closeNotificationBtn.setObjectName(u"closeNotificationBtn")
         self.closeNotificationBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon31 = QIcon()
-        icon31.addFile(u":/icons/icons/whiteIcons/x-octagon.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.closeNotificationBtn.setIcon(icon31)
+        icon32 = QIcon()
+        icon32.addFile(u":/icons/icons/whiteIcons/x-octagon.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.closeNotificationBtn.setIcon(icon32)
         self.closeNotificationBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_10.addWidget(self.closeNotificationBtn, 0, Qt.AlignRight)
@@ -1290,7 +1352,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.centerMenuPages.setCurrentIndex(2)
-        self.mainPages.setCurrentIndex(0)
+        self.mainPages.setCurrentIndex(1)
         self.pushButton_2.setDefault(True)
         self.pushButton.setDefault(True)
         self.pushButton_4.setDefault(True)
@@ -1314,7 +1376,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.dataBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Data Storage", None))
 #endif // QT_CONFIG(tooltip)
-        self.dataBtn.setText(QCoreApplication.translate("MainWindow", u"Data Analysis", None))
+        self.dataBtn.setText(QCoreApplication.translate("MainWindow", u"Review Data", None))
 #if QT_CONFIG(tooltip)
         self.monitorBtn.setToolTip(QCoreApplication.translate("MainWindow", u"CCTV", None))
 #endif // QT_CONFIG(tooltip)
@@ -1348,7 +1410,7 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">We do protect your property from the initial fire.</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Ver. 101.24.001</p></body></html>", None))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Ver. 100.24.001</p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.textEdit_2.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -1356,14 +1418,19 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Contact</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Oper Sys: JooYoen Kim</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Video Sys: S"
-                        "ehyoung Lee</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">DL &amp; Data: Yonggon Yoon</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Video Sys Manager: Sehyoung Lee</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent"
+                        ":0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">DL &amp; Data Manager: Yonggon Yoon</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sehyoung Lee</p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sensing: Kiwook Kim</p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Manager: Joo_K</p></body></html>", None))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sensing &amp; Hardware Equip. Manager: Kiwook Kim</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:"
+                        "0px; -qt-block-indent:0; text-indent:0px;\">Oper Sys Manager: JooYoen Kim</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Joo_K</p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Interface &amp; DB Manager: Joo_K</p></body></html>", None))
         self.label_6.setText("")
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"SFR System", None))
 #if QT_CONFIG(tooltip)
@@ -1375,7 +1442,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.moreMenuBtn.setText("")
 #if QT_CONFIG(tooltip)
-        self.profileMenuBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Profile", None))
+        self.profileMenuBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Web Monitoring Connection", None))
 #endif // QT_CONFIG(tooltip)
         self.profileMenuBtn.setText("")
 #if QT_CONFIG(tooltip)
@@ -1392,31 +1459,93 @@ class Ui_MainWindow(object):
         self.closeBtn.setText("")
         self.label_30.setText(QCoreApplication.translate("MainWindow", u"Standard", None))
         self.label_32.setText("")
-        self.label_29.setText(QCoreApplication.translate("MainWindow", u"3", None))
+#if QT_CONFIG(tooltip)
+        self.label_29.setToolTip(QCoreApplication.translate("MainWindow", u"Standard Vehicle", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.label_34.setText(QCoreApplication.translate("MainWindow", u"Large", None))
         self.label_35.setText("")
-        self.label_33.setText(QCoreApplication.translate("MainWindow", u"2", None))
+#if QT_CONFIG(tooltip)
+        self.label_33.setToolTip(QCoreApplication.translate("MainWindow", u"Large Vehicle", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"Cargo Truck", None))
         self.label_23.setText("")
+#if QT_CONFIG(tooltip)
+        self.label_24.setToolTip(QCoreApplication.translate("MainWindow", u"Truck", None))
+#endif // QT_CONFIG(tooltip)
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"E/V", None))
         self.label_26.setText("")
+#if QT_CONFIG(tooltip)
+        self.label_27.setToolTip(QCoreApplication.translate("MainWindow", u"E/V", None))
+#endif // QT_CONFIG(tooltip)
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"Fire Alert", None))
+#if QT_CONFIG(tooltip)
+        self.fireAlertBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Deactivate Fire Alert Button", None))
+#endif // QT_CONFIG(tooltip)
         self.fireAlertBtn.setText("")
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Water Alert", None))
+#if QT_CONFIG(tooltip)
+        self.waterAlertBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Water Level Alert", None))
+#endif // QT_CONFIG(tooltip)
         self.waterAlertBtn.setText("")
         self.smallMonitorLabel.setText(QCoreApplication.translate("MainWindow", u"Input Signal", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Data Storage", None))
+        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"log_id", None));
+        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"deviceStatus", None));
+        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"ino_time", None));
+        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"position_x", None));
+        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"position_y", None));
+        ___qtablewidgetitem5 = self.tableWidget.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"direction_x", None));
+        ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"direction_y", None));
+        ___qtablewidgetitem7 = self.tableWidget.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"motorStatus", None));
+        ___qtablewidgetitem8 = self.tableWidget.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"flameStatus", None));
+        ___qtablewidgetitem9 = self.tableWidget.horizontalHeaderItem(9)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"waterStatus", None));
+        self.refreshTableBtn.setText("")
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Monitor", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Cam Manual", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_2.setToolTip(QCoreApplication.translate("MainWindow", u"Aim the camera upwards", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_2.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton.setToolTip(QCoreApplication.translate("MainWindow", u"Aim the camera downwards", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_5.setToolTip(QCoreApplication.translate("MainWindow", u"Zoom In", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_5.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_4.setToolTip(QCoreApplication.translate("MainWindow", u"Aim the camera to the left", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_4.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_3.setToolTip(QCoreApplication.translate("MainWindow", u"Aim the camera to the right", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_3.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_8.setToolTip(QCoreApplication.translate("MainWindow", u"Manual Toggle On", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_8.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_7.setToolTip(QCoreApplication.translate("MainWindow", u"Manual Toggle Off", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_7.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_6.setToolTip(QCoreApplication.translate("MainWindow", u"Zoom Out", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_6.setText("")
 #if QT_CONFIG(tooltip)
         self.pushButton_12.setToolTip(QCoreApplication.translate("MainWindow", u"Manual Moving Stop", None))
@@ -1425,13 +1554,34 @@ class Ui_MainWindow(object):
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"Moving Stop", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Manual", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Water toggle", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_9.setToolTip(QCoreApplication.translate("MainWindow", u"Water Pump On", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_9.setText("")
+#if QT_CONFIG(tooltip)
+        self.pushButton_10.setToolTip(QCoreApplication.translate("MainWindow", u"Water Pump Off", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_10.setText("")
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"Input signal", None))
+#if QT_CONFIG(tooltip)
+        self.playBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Play", None))
+#endif // QT_CONFIG(tooltip)
         self.playBtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.pauseBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Pause", None))
+#endif // QT_CONFIG(tooltip)
         self.pauseBtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.stopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Stop", None))
+#endif // QT_CONFIG(tooltip)
         self.stopBtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.zoomInBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Zoom in", None))
+#endif // QT_CONFIG(tooltip)
         self.zoomInBtn.setText("")
+#if QT_CONFIG(tooltip)
+        self.zoomOutBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Zoom out", None))
+#endif // QT_CONFIG(tooltip)
         self.zoomOutBtn.setText("")
 #if QT_CONFIG(tooltip)
         self.pushButton_11.setToolTip(QCoreApplication.translate("MainWindow", u"Open file", None))
@@ -1451,6 +1601,9 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeNotificationBtn.setText("")
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Copyright by SFR System", None))
+#if QT_CONFIG(tooltip)
+        self.label_20.setToolTip(QCoreApplication.translate("MainWindow", u"System Operating Status Indicator", None))
+#endif // QT_CONFIG(tooltip)
         self.label_20.setText("")
     # retranslateUi
 

@@ -230,7 +230,7 @@
                 <string>Data Storage</string>
                </property>
                <property name="text">
-                <string>Data Analysis</string>
+                <string>Review Data</string>
                </property>
                <property name="icon">
                 <iconset resource="resources.qrc">
@@ -534,6 +534,12 @@
           </item>
           <item>
            <widget class="QCustomStackedWidget" name="centerMenuPages">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="currentIndex">
              <number>2</number>
             </property>
@@ -563,6 +569,8 @@
                 <property name="font">
                  <font>
                   <pointsize>13</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -582,7 +590,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;We do protect your property from the initial fire.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ver. 101.24.001&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ver. 100.24.001&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -595,6 +603,8 @@ p, li { white-space: pre-wrap; }
                 <property name="font">
                  <font>
                   <pointsize>13</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -614,13 +624,17 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Contact&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Oper Sys: JooYoen Kim&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Video Sys: Sehyoung Lee&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DL &amp;amp; Data: Yonggon Yoon&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sehyoung Lee&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sensing: Kiwook Kim&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Video Sys Manager: Sehyoung Lee&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Manager: Joo_K&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DL &amp;amp; Data Manager: Yonggon Yoon&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sehyoung Lee&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Sensing &amp;amp; Hardware Equip. Manager: Kiwook Kim&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Oper Sys Manager: JooYoen Kim&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Joo_K&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Interface &amp;amp; DB Manager: Joo_K&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -808,7 +822,7 @@ p, li { white-space: pre-wrap; }
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="toolTip">
-                <string>Profile</string>
+                <string>Web Monitoring Connection</string>
                </property>
                <property name="text">
                 <string/>
@@ -924,7 +938,7 @@ p, li { white-space: pre-wrap; }
              <item>
               <widget class="QCustomStackedWidget" name="mainPages">
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="page_6">
                 <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1084,8 +1098,11 @@ p, li { white-space: pre-wrap; }
                                  <bold>true</bold>
                                 </font>
                                </property>
+                               <property name="toolTip">
+                                <string>Standard Vehicle</string>
+                               </property>
                                <property name="text">
-                                <string>3</string>
+                                <string>0</string>
                                </property>
                                <property name="alignment">
                                 <set>Qt::AlignCenter</set>
@@ -1212,8 +1229,11 @@ p, li { white-space: pre-wrap; }
                                  <bold>true</bold>
                                 </font>
                                </property>
+                               <property name="toolTip">
+                                <string>Large Vehicle</string>
+                               </property>
                                <property name="text">
-                                <string>2</string>
+                                <string>1</string>
                                </property>
                                <property name="alignment">
                                 <set>Qt::AlignCenter</set>
@@ -1339,6 +1359,9 @@ p, li { white-space: pre-wrap; }
                                  <weight>75</weight>
                                  <bold>true</bold>
                                 </font>
+                               </property>
+                               <property name="toolTip">
+                                <string>Truck</string>
                                </property>
                                <property name="text">
                                 <string>1</string>
@@ -1468,6 +1491,9 @@ p, li { white-space: pre-wrap; }
                                  <bold>true</bold>
                                 </font>
                                </property>
+                               <property name="toolTip">
+                                <string>E/V</string>
+                               </property>
                                <property name="text">
                                 <string>1</string>
                                </property>
@@ -1540,6 +1566,9 @@ p, li { white-space: pre-wrap; }
                             <property name="cursor">
                              <cursorShape>PointingHandCursor</cursorShape>
                             </property>
+                            <property name="toolTip">
+                             <string>Deactivate Fire Alert Button</string>
+                            </property>
                             <property name="text">
                              <string/>
                             </property>
@@ -1604,6 +1633,9 @@ p, li { white-space: pre-wrap; }
                             <property name="cursor">
                              <cursorShape>PointingHandCursor</cursorShape>
                             </property>
+                            <property name="toolTip">
+                             <string>Water Level Alert</string>
+                            </property>
                             <property name="text">
                              <string/>
                             </property>
@@ -1654,19 +1686,202 @@ p, li { white-space: pre-wrap; }
                </widget>
                <widget class="QWidget" name="page_7">
                 <layout class="QVBoxLayout" name="verticalLayout_17">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item>
-                  <widget class="QLabel" name="label_11">
-                   <property name="font">
-                    <font>
-                     <pointsize>13</pointsize>
-                    </font>
+                  <widget class="QFrame" name="frame_20">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
                    </property>
-                   <property name="text">
-                    <string>Data Storage</string>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
                    </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_26">
+                    <item>
+                     <widget class="QTableWidget" name="tableWidget">
+                      <column>
+                       <property name="text">
+                        <string>log_id</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>deviceStatus</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>ino_time</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>position_x</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>position_y</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>direction_x</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>direction_y</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>motorStatus</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>flameStatus</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>waterStatus</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter">
+                     <widget class="QPushButton" name="refreshTableBtn">
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="resources.qrc">
+                        <normaloff>:/icons/icons/whiteIcons/refresh-cw.svg</normaloff>:/icons/icons/whiteIcons/refresh-cw.svg</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>20</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -1768,6 +1983,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="1" column="3" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                           <widget class="QPushButton" name="pushButton_2">
+                           <property name="toolTip">
+                            <string>Aim the camera upwards</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1791,6 +2009,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="2" column="3" alignment="Qt::AlignHCenter|Qt::AlignTop">
                           <widget class="QPushButton" name="pushButton">
+                           <property name="toolTip">
+                            <string>Aim the camera downwards</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1814,6 +2035,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="1" column="5" alignment="Qt::AlignLeft|Qt::AlignVCenter">
                           <widget class="QPushButton" name="pushButton_5">
+                           <property name="toolTip">
+                            <string>Zoom In</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1834,6 +2058,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="2" column="2" alignment="Qt::AlignRight|Qt::AlignTop">
                           <widget class="QPushButton" name="pushButton_4">
+                           <property name="toolTip">
+                            <string>Aim the camera to the left</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1857,6 +2084,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="2" column="4" alignment="Qt::AlignLeft|Qt::AlignTop">
                           <widget class="QPushButton" name="pushButton_3">
+                           <property name="toolTip">
+                            <string>Aim the camera to the right</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1880,6 +2110,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="1" column="1">
                           <widget class="QPushButton" name="pushButton_8">
+                           <property name="toolTip">
+                            <string>Manual Toggle On</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1898,6 +2131,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="2" column="1">
                           <widget class="QPushButton" name="pushButton_7">
+                           <property name="toolTip">
+                            <string>Manual Toggle Off</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -1916,6 +2152,9 @@ p, li { white-space: pre-wrap; }
                          </item>
                          <item row="2" column="5" alignment="Qt::AlignLeft|Qt::AlignTop">
                           <widget class="QPushButton" name="pushButton_6">
+                           <property name="toolTip">
+                            <string>Zoom Out</string>
+                           </property>
                            <property name="text">
                             <string/>
                            </property>
@@ -2034,6 +2273,9 @@ p, li { white-space: pre-wrap; }
                        </item>
                        <item>
                         <widget class="QPushButton" name="pushButton_9">
+                         <property name="toolTip">
+                          <string>Water Pump On</string>
+                         </property>
                          <property name="text">
                           <string/>
                          </property>
@@ -2052,6 +2294,9 @@ p, li { white-space: pre-wrap; }
                        </item>
                        <item>
                         <widget class="QPushButton" name="pushButton_10">
+                         <property name="toolTip">
+                          <string>Water Pump Off</string>
+                         </property>
                          <property name="text">
                           <string/>
                          </property>
@@ -2138,6 +2383,9 @@ p, li { white-space: pre-wrap; }
                     </property>
                     <item>
                      <widget class="QPushButton" name="playBtn">
+                      <property name="toolTip">
+                       <string>Play</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -2155,6 +2403,9 @@ p, li { white-space: pre-wrap; }
                     </item>
                     <item>
                      <widget class="QPushButton" name="pauseBtn">
+                      <property name="toolTip">
+                       <string>Pause</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -2172,6 +2423,9 @@ p, li { white-space: pre-wrap; }
                     </item>
                     <item>
                      <widget class="QPushButton" name="stopBtn">
+                      <property name="toolTip">
+                       <string>Stop</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -2189,6 +2443,9 @@ p, li { white-space: pre-wrap; }
                     </item>
                     <item>
                      <widget class="QPushButton" name="zoomInBtn">
+                      <property name="toolTip">
+                       <string>Zoom in</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -2206,6 +2463,9 @@ p, li { white-space: pre-wrap; }
                     </item>
                     <item>
                      <widget class="QPushButton" name="zoomOutBtn">
+                      <property name="toolTip">
+                       <string>Zoom out</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
@@ -2541,6 +2801,9 @@ p, li { white-space: pre-wrap; }
                  <height>30</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>System Operating Status Indicator</string>
+               </property>
                <property name="text">
                 <string/>
                </property>
@@ -2595,6 +2858,7 @@ p, li { white-space: pre-wrap; }
   </customwidget>
  </customwidgets>
  <resources>
+  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>
  <connections/>
