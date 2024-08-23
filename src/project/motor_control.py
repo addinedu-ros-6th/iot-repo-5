@@ -45,8 +45,7 @@ class Motor:
             self.py_serial = MagicMock()
 
         # Webcam settings 
-        # self.cap = cv2.VideoCapture(2) 
-        self.cap = cv2.VideoCapture(0) 
+        self.cap = cv2.VideoCapture(2) 
         self.height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # 640 480 
         self.width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH) 
         self.offset_x = 120 
@@ -142,8 +141,9 @@ class Motor:
         return center_x, center_y, ret, frame 
     
     def read_ino(self): 
-        if self.py_serial.readable(): 
-            response = self.py_serial.read_until(b'\n') 
+        # if self.py_serial.readable(): 
+        try:
+            response = self.py_serial.read_until(b'\n')[:-2]
             print("response:", response) 
             print() 
 
@@ -157,17 +157,19 @@ class Motor:
             self.flameStatus = response[10] 
             self.waterStatus = response[11] 
         
+
         # 여기 테스트 필요 
         # else: 
-        #     self.deviceStatus = 0 
-        #     self.ino_time = 0 
-        #     self.position_x = 0 
-        #     self.position_y = 0 
-        #     self.direction_x = 0 
-        #     self.direction_y = 0 
-        #     self.motorStatus = 0 
-        #     self.flameStatus = 0 
-        #     self.waterStatus = 0 
+        except:
+            self.deviceStatus = 0 
+            self.ino_time = 0 
+            self.position_x = 0 
+            self.position_y = 0 
+            self.direction_x = 0 
+            self.direction_y = 0 
+            self.motorStatus = 0 
+            self.flameStatus = 0 
+            self.waterStatus = 0 
     
     def send_cmd(self, center_x, center_y, manual_cmd=None): 
         ## State transition part 
@@ -212,7 +214,7 @@ class Motor:
 
 
         ## Command part 
-        self.cmd_list = [] 
+        self.cmd_list = ["99"] 
         
         # patrol mode 
         if self.state == 0: 

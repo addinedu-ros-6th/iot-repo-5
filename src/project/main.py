@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
         # Blink settings
         self.blink_timer = QTimer(self)
         self.blink_state = False
-        self.blink_timer.timeout.connect(self.blink_card_6)
+        self.blink_timer.timeout.connect(self.blink_card_5)
 
         # Set timer 11 secs
         self.auto_recover_timer = QTimer(self)
@@ -96,7 +96,7 @@ class MainWindow(QMainWindow):
         self.manual_cmd = None 
 
     def update_indicator(self):
-        self.motor.read_ino()
+        # self.motor.read_ino()
         if self.motor.deviceStatus == 1:
             self.set_indicator_color("green")
         else:
@@ -114,12 +114,12 @@ class MainWindow(QMainWindow):
         # elif color == "grey":
         #     self.ui.indicator.setStyleSheet("background-color: rgb(128, 128, 128);")
 
-    def blink_card_6(self):
+    def blink_card_5(self):
         if self.blink_state:
-            self.ui.card_6.setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.ui.card_5.setStyleSheet("background-color: rgb(255, 255, 255);")
             self.blink_state = False
         else:
-            self.ui.card_6.setStyleSheet("background-color: rgb(255, 0, 0);")
+            self.ui.card_5.setStyleSheet("background-color: rgb(255, 0, 0);")
             self.blink_state = True
 
     def fire_detected(self):
@@ -144,7 +144,7 @@ class MainWindow(QMainWindow):
 
             # self.waterpumpOFF()
 
-            self.blink_card_6.setStyleSheet("background-color: #343b47;")
+            self.blink_card_5.setStyleSheet("background-color: #343b47;")
         else:
             pass
 
@@ -179,7 +179,7 @@ class MainWindow(QMainWindow):
     
     def convertToAuto(self): 
         self.motor.state = 0
-        self.ui.card_6.setStyleSheet("background-color: #343b47;")
+        self.ui.card_5.setStyleSheet("background-color: #343b47;")
         
     def check_fire_status(self, isFireCentered, isFlameSensor):
         if isFireCentered and isFlameSensor:
@@ -224,6 +224,8 @@ class MainWindow(QMainWindow):
     ####
 
     def updateCamera(self): 
+        self.motor.py_serial.flush() 
+
         center_x, center_y, ret, frame = self.motor.get_pred() 
         self.motor.read_ino() 
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
@@ -249,6 +251,8 @@ class MainWindow(QMainWindow):
 
             self.ui.smallMonitorLabel.setPixmap(self.pixmap_home) 
             self.ui.label_12.setPixmap(self.pixmap_monitor) 
+        
+        # self.motor.py_serial.flush() 
 
 
 class Camera(QThread): 
