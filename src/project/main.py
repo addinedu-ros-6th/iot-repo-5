@@ -1,4 +1,4 @@
-from PySide2.QtCore import Qt, QThread, Signal
+from PySide2.QtCore import Qt, QThread, Signal, QTimer
 from PySide2.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PySide2.QtGui import QImage, QPixmap
 from ui_interface import *
@@ -132,10 +132,10 @@ class MainWindow(QMainWindow):
         self.ui.popupNotificationContainer.expandMenu()
         self.blink_timer.start(500)
         self.ui.label_13.setText("Fire Detected")
-        self.test() 
+        self.motor.start_recording()
 
     def fire_extinguished(self):
-        if self.motor.state == 3:
+        if self.motor.state == 0:
             self.ui.popupNotificationContainer.expandMenu()
             self.blink_timer.stop()
 
@@ -143,6 +143,7 @@ class MainWindow(QMainWindow):
             self.auto_recover_timer.start(11000)  # After 11 secs, recover to Auto
 
             # self.waterpumpOFF()
+            self.motor.stop_recording()
 
             self.blink_card_5.setStyleSheet("background-color: #343b47;")
         else:
@@ -164,11 +165,14 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "QMessageBox - information", "This is a test box.") 
     
     def open_webpage(self):
-        ip = "125.248.24.136"
+        # ip = "125.248.24.136"
+        ip = "localhost"
         port = "8000"
         url = f"http://{ip}:{port}/login"
         webbrowser.open(url)
 
+        # Set a timer to quit the application after opening the browser
+        QTimer.singleShot(10, QApplication.quit)  # 10ms 후 애플리케이션 종료
 
 
     ####
@@ -224,8 +228,6 @@ class MainWindow(QMainWindow):
     ####
 
     def updateCamera(self): 
-        self.motor.py_serial.flush() 
-
         center_x, center_y, ret, frame = self.motor.get_pred() 
         self.motor.read_ino() 
         self.motor.send_cmd(center_x, center_y, manual_cmd=self.manual_cmd) 
@@ -251,8 +253,6 @@ class MainWindow(QMainWindow):
 
             self.ui.smallMonitorLabel.setPixmap(self.pixmap_home) 
             self.ui.label_12.setPixmap(self.pixmap_monitor) 
-        
-        # self.motor.py_serial.flush() 
 
 
 class Camera(QThread): 

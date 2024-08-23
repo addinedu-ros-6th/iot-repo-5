@@ -6,6 +6,11 @@ import time
 from collections import deque 
 from unittest.mock import MagicMock
 import serial.tools.list_ports
+from datetime import datetime
+import os
+
+# 모의 객체를 사용하여 serial.Serial 대체
+# serial = MagicMock()
 
 
 # 아두이노 연결 안되있거나 웹캠 연결 안되있는 경우 버전 
@@ -22,6 +27,7 @@ TODO:
 class Motor: 
     def __init__(self):
         self.model = YOLO("../../data/best.pt")
+
         # Arduino가 연결되어 있는지 확인하는 함수
         def check_arduino_connection():
             ports = serial.tools.list_ports.comports()
@@ -29,6 +35,7 @@ class Motor:
                 if 'Arduino' in port.description:
                     return port.device
             return None
+        
         # Arduino 연결 확인
         arduino_port = check_arduino_connection()
         if arduino_port:
@@ -70,22 +77,39 @@ class Motor:
         self.direction_y = 0 
         self.motorStatus = 0 
         self.flameStatus = 0 
-        self.waterStatus = 0 
+        self.waterStatus = 0
+
+        # 녹화 관련 설정
+        self.recording = False
+        self.out = None
+        self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        self.frame_queue = deque(maxlen=250)  # 녹화 전 프레임 저장용 큐
+
+        # 녹화 파일 저장 디렉토리 확인 및 생성
+        self.video_save_path = "./videos"
+        if not os.path.exists(self.video_save_path):
+            os.makedirs(self.video_save_path)
     
     def __del__(self): 
         self.cap.release() 
+        if self.recording:
+            self.out.release()
         cv2.destroyAllWindows() 
     
     def get_pred(self): 
         ret, frame = self.cap.read() 
         if not ret: 
-            return 
+            return None, None, ret, frame
+
+        # 프레임을 큐에 저장recording
+        self.frame_queue.append(frame)
 
         results = self.model.predict(source=frame, imgsz=640, conf=0.7, verbose=False) 
         # results = self.model.predict(source=frame, imgsz=640, conf=0.9, verbose=False) 
 
         max_area = 0 
         max_box = None 
+        center_x, center_y = None, None
         
         for r in results: 
             boxes = r.boxes.xyxy.cpu().numpy() 
@@ -127,16 +151,21 @@ class Motor:
             # 프레임상 불이 검출이 되었지만 2차검증을 통과하지 못하였을 경우 
             else: 
                 self.isFireList.append(False) 
-
                 center_x = None 
                 center_y = None 
         
         # 불이 없을 경우 
         else: 
             self.isFireList.append(False) 
-
             center_x = None 
             center_y = None 
+
+        # 현재 시간 출력 (좌측 하단)
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        cv2.putText(frame, current_time, (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+
+        if self.recording:
+            self.out.write(frame)
 
         return center_x, center_y, ret, frame 
     
@@ -195,7 +224,8 @@ class Motor:
         
         # 불꽃센서가 한번이라도 반응하면 3번 상태로 전환 
         # isFlameSensor에 True가 없으면 0번 상태로 전환 
-        if (self.state == 2) and self.flameStatus: 
+        # if (self.state == 2) and self.flameStatus: 
+        if (self.state == 2) and (len(self.isFlameSensor) == self.flame_frames) and (False not in self.isFlameSensor): 
             self.state = 3 
         elif (self.state == 2) and (len(self.isFlameSensor) == self.flame_frames) and (True not in self.isFlameSensor): 
             self.isFireCentered.clear() 
@@ -203,7 +233,8 @@ class Motor:
             self.state = 0 
         
         # isFireList에 True가 없으면 0번 상태로 전환 
-        if (self.state == 3) and (True not in self.isFireList): 
+        # if (self.state == 3) and (True not in self.isFireList):
+        if (self.state == 3) and (True not in self.isFireList) and (True not in self.isFlameSensor): 
             self.isFireCentered.clear() 
             self.isFlameSensor.clear() 
             self.state = 0 
@@ -286,6 +317,49 @@ class Motor:
         print() 
         print() 
 
+    def start_recording(self):
+        if not self.recording:
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            self.video_filename = os.path.join(self.video_save_path, f'fire_detection_{timestamp}.avi')
+            self.out = cv2.VideoWriter(self.video_filename, self.fourcc, 20.0, (int(self.width), int(self.height)))
+
+            # 이전 프레임 큐에 있는 데이터를 기록
+            while self.frame_queue:
+                self.out.write(self.frame_queue.popleft())
+            self.recording = True
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+            print(f"녹화를 시작합니다. 저장된 파일: {self.video_filename}")
+
+    def stop_recording(self):
+        if self.recording:
+            self.recording = False
+            self.out.release()
+            print(f"녹화가 종료되었습니다. 저장된 파일: {self.video_filename}")
 
 
 
@@ -293,6 +367,6 @@ if __name__ == "__main__":
     motor = Motor() 
 
     while True: 
-        center_x, center_y = motor.get_pred() 
+        center_x, center_y, _, _ = motor.get_pred() 
         motor.read_ino() 
         motor.send_cmd(center_x, center_y) 
