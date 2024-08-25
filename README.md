@@ -152,3 +152,8 @@ IoT 프로젝트 5조 저장소. 스마트 화재 대응 시스템
 #### 소방 시스템 동작 중 영상
 
 [![2024-08-25 152724](https://github.com/user-attachments/assets/9d8acd5d-e29e-477a-862c-a34c8eda05ea)](https://youtu.be/hH23VZV-6LM?si=iiM9x-hZtJJXsXXB)
+
+#### 작업 이미지들
+
+![1000007148](https://github.com/user-attachments/assets/610e0d19-dda5-494c-9b56-b44e17555685)
+![1000007152](https://github.com/user-attachments/assets/cf62c54e-080e-4210-9dd1-e556510cc962)
