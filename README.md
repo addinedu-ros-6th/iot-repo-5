@@ -27,7 +27,7 @@ IoT 프로젝트 5조 저장소. 스마트 화재 대응 시스템
 #### HW 구성도
 ![2024-08-25 145149](https://github.com/user-attachments/assets/b110be3e-8d39-489d-9304-1b0e0b88db62)
 #### SW 구성도
-<img src="https://github.com/user-attachments/assets/4a1782c1-6575-4796-89d9-6c06e0d80a39" alt="2024-08-25 145158" style="width: 300px; height: auto;">
+<img src="https://github.com/user-attachments/assets/4a1782c1-6575-4796-89d9-6c06e0d80a39" alt="2024-08-25 145158" style="width: 450px; height: auto;">
 
 ### 1.4 팀원 소개
 ![team](https://github.com/user-attachments/assets/6a176d04-6895-4f17-84f9-018e30873c3f)
@@ -143,7 +143,7 @@ IoT 프로젝트 5조 저장소. 스마트 화재 대응 시스템
 ![2024-08-25 152109](https://github.com/user-attachments/assets/f08081ac-d24f-445a-8c81-202ada3e2a0b)
 
 #### Recording File View 
-[![2024-08-25 152109](https://github.com/user-attachments/assets/f08081ac-d24f-445a-8c81-202ada3e2a0b)](https://youtu.be/YKAlNO8vtrQ?si=kuCn69f-f6YmssA0)
+[![2024-08-25 152350](https://github.com/user-attachments/assets/59c155a8-9696-4993-a3a6-3ba86e854605)](https://youtu.be/YKAlNO8vtrQ?si=kuCn69f-f6YmssA0)
 
 #### Various User Interface
 
