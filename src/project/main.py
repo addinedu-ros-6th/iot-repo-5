@@ -112,7 +112,7 @@ class MainWindow(QMainWindow):
                 host="sfrs-1.crc0su20q3tu.ap-northeast-2.rds.amazonaws.com",
                 port=3306,
                 user="root",
-                password="pymysql1234",
+                password="********",
                 database="sfrs"
                 )
             print("Connected to MySQL database")
